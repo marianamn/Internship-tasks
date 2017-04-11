@@ -25,7 +25,7 @@ var controller = (function() {
         var userGender = $("<p>gender: " + gender + "</p>");
         userGender.addClass("user-gender");
 
-        var userEmail = $("<p>email " + email + "</p>");
+        var userEmail = $("<p>email: " + email + "</p>");
         userEmail.addClass("user-email");
 
         div.append(userImage);
