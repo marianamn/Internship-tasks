@@ -5,10 +5,6 @@ var controller = (function() {
         email,
         name;
 
-    function capitalizeFirstLetter(name) {
-        return name.charAt(0).toUpperCase() + name.slice(1);
-    }
-
     function seedInfo(image, name, gender, email) {
         var container = $("#container");
 
@@ -43,9 +39,9 @@ var controller = (function() {
 
                 for (i = 0; i < len; ++i) {
                     image = response.results[i].picture.medium;
-                    name = capitalizeFirstLetter(response.results[i].name.title) + ". " +
-                        capitalizeFirstLetter(response.results[i].name.first) + " " +
-                        capitalizeFirstLetter(response.results[i].name.last);
+                    name = response.results[i].name.title + ". " +
+                        response.results[i].name.first + " " +
+                        response.results[i].name.last;
                     gender = response.results[i].gender;
                     email = response.results[i].email;
 
