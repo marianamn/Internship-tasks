@@ -8,9 +8,11 @@ var requester = (function() {
                 contentType: "application/json",
                 success: function(response) {
                     resolve(response);
+                    $("#spinner").hide();
                 },
                 error: function(err) {
                     reject(err);
+                    $("#spinner").hide();
                 }
             });
         });
