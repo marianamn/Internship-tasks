@@ -19,7 +19,6 @@ var requester = (function() {
 
         return promise;
     }
-
     return {
         getJSON: getJSON
     }
