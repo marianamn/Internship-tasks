@@ -128,26 +128,30 @@ body {
 }
 
 .checkbox label input[type="checkbox"] {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    -ms-appearance: none;
-    -o-appearance: none;
-    width: 20px;
-    height: 20px;
-    vertical-align: middle;
-    background: #03a9f5;
-    color: #fff;
-    border-radius: 5px;
-    margin-top: -4px;
-    cursor: pointer;
+    display: none;
 }
 
-.checkbox label input[type=checkbox]:checked:before {
-    content: "\2714";
-    position: absolute;
-    margin-left: -15px;
-    color: #fff;
+.checkbox label span {
+    display: inline-block;
+    border-radius: 5px;
+    width: 20px;
+    height: 20px;
     background: #03a9f5;
+    vertical-align: middle;
+    position: relative;
+}
+
+.checkbox label :checked+span {
+    width: 20px;
+    height: 20px;
+}
+
+.checkbox label :checked+span:after {
+    content: '\2714';
+    position: absolute;
+    top: 0;
+    left: 5px;
+    color: #fff;
 }
 
 .checkbox a {
