@@ -91,7 +91,7 @@ body {
     height: 48px;
     padding-left: 20px;
     border-radius: 3px;
-    border: 1px solid #a8a8a8;
+    border: 1px solid #d8d8d8;
     box-sizing: border-box;
 }
 
@@ -101,7 +101,7 @@ body {
 
 .button-show {
     position: absolute;
-    margin-left: 24%;
+    left: 53%;
     margin-top: -40px;
     height: 30px;
     width: 60px;
@@ -124,29 +124,31 @@ body {
     color: #8a8b8d;
     font-size: 0.75rem;
     font-weight: bold;
+    padding-top: 4px;
 }
 
-.checkbox label input {
-    visibility: hidden;
-    display: block;
-    height: 0;
-    width: 0;
-    position: absolute;
-    overflow: hidden;
-}
-
-.checkbox label span {
-    height: 20px;
+.checkbox label input[type="checkbox"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
     width: 20px;
-    display: inline-block;
+    height: 20px;
+    vertical-align: middle;
     background: #03a9f5;
-    border-radius: 3px;
+    color: #fff;
+    border-radius: 5px;
+    margin-top: -4px;
+    cursor: pointer;
 }
 
-
-/*.checkbox label input[type=checkbox]:checked+span {
-    background: black;
-}*/
+.checkbox label input[type=checkbox]:checked:before {
+    content: "\2714";
+    position: absolute;
+    margin-left: -15px;
+    color: #fff;
+    background: #03a9f5;
+}
 
 .checkbox a {
     float: right;
@@ -176,9 +178,9 @@ body {
 }
 
 .separator>p:nth-of-type(1) {
-    width: 45%;
+    width: 47%;
     height: 1px;
-    border-top: 2px solid #dee1e6;
+    border-top: 2px solid #bebebe;
     float: left;
 }
 
@@ -186,8 +188,7 @@ body {
     float: left;
     margin-top: -8px;
     margin-left: 5px;
-    margin-right: 5px;
-    color: #dee1e6;
+    color: #bebebe;
     font-weight: bold;
     font-size: 0.75rem;
 }
@@ -195,7 +196,7 @@ body {
 .separator p:nth-of-type(3) {
     width: 45%;
     height: 1px;
-    border-top: 2px solid #dee1e6;
+    border-top: 2px solid #bebebe;
     float: right;
 }
 
@@ -206,7 +207,6 @@ body {
 }
 
 .buttons-socials img {
-    margin-left: -35%;
     margin-right: 15px;
     border: none;
     vertical-align: middle
