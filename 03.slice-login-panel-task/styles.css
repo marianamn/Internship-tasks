@@ -2,7 +2,10 @@ body,
 div,
 p,
 a,
-button {
+button,
+legend,
+label,
+input {
     margin: 0;
     padding: 0;
 }
@@ -13,34 +16,33 @@ body {
 }
 
 #container {
-    padding-top: 50px;
-    display: block;
+    background: url(./images/map.jpg);
+    background-size: 100% 100%;
+    height: 100vh;
 }
 
-#container .modal {
-    position: fixed;
+#container .login-modal {
+    margin: 0 auto;
+    width: 50%;
     padding-top: 50px;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background: url('./images/map.jpg');
-    background-size: 100% 100%;
+}
+
+#container .login-modal .modal {
+    width: 75%;
     float: left;
 }
 
 .modal .modal-content {
-    background-color: rgb(241, 249, 252);
+    background-color: rgba(241, 249, 252, 0.8);
     border-radius: 5px;
-    opacity: 0.8;
     margin: auto;
     padding: 40px 50px;
-    width: 50%;
-    box-shadow: 0px 15px 20px 7px rgb(32, 40, 63);
+    max-width: 440px;
+    box-shadow: 0px 15px 20px 7px #20283f;
 }
 
-#container .psd {
-    float: right;
+#container .login-modal .psd {
+    float: left;
     width: 150px;
     background: #fdd521;
     border-radius: 10px 10px 10px 0;
@@ -48,9 +50,8 @@ body {
     padding-top: 25px;
     color: white;
     text-transform: uppercase;
-    position: fixed;
     font-weight: bold;
-    right: 10%;
+    margin-left: 10px;
 }
 
 #container .psd>p {
@@ -67,4 +68,165 @@ body {
     position: relative;
     top: 24px;
     left: -125px;
+}
+
+.form-title {
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #4f5052;
+}
+
+.form-group .form-label {
+    margin-top: 30px;
+    margin-bottom: 10px;
+    color: #848589;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 0.75rem;
+}
+
+.form-group input {
+    width: 100%;
+    height: 48px;
+    padding-left: 20px;
+    border-radius: 3px;
+    border: 1px solid #a8a8a8;
+    box-sizing: border-box;
+}
+
+.form-group input:focus {
+    outline: none;
+}
+
+.button-show {
+    position: absolute;
+    margin-left: 24%;
+    margin-top: -40px;
+    height: 30px;
+    width: 60px;
+    border: none;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    font-weight: bold;
+    color: #aaa56e;
+    background: #f6f0a0;
+    border-radius: 3px;
+}
+
+.checkbox {
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 25px;
+}
+
+.checkbox label {
+    color: #8a8b8d;
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
+.checkbox label input {
+    visibility: hidden;
+    display: block;
+    height: 0;
+    width: 0;
+    position: absolute;
+    overflow: hidden;
+}
+
+.checkbox label span {
+    height: 20px;
+    width: 20px;
+    display: inline-block;
+    background: #03a9f5;
+    border-radius: 3px;
+}
+
+
+/*.checkbox label input[type=checkbox]:checked+span {
+    background: black;
+}*/
+
+.checkbox a {
+    float: right;
+    color: #03a9f5;
+    font-size: 0.75rem;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.button-sign-in {
+    width: 100%;
+    margin-bottom: 20px;
+    height: 55px;
+    background: #0896d8;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    box-shadow: 0px 5px #0075aa;
+}
+
+.separator {
+    margin-top: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+.separator>p:nth-of-type(1) {
+    width: 45%;
+    height: 1px;
+    border-top: 2px solid #dee1e6;
+    float: left;
+}
+
+.separator p:nth-of-type(2) {
+    float: left;
+    margin-top: -8px;
+    margin-left: 5px;
+    margin-right: 5px;
+    color: #dee1e6;
+    font-weight: bold;
+    font-size: 0.75rem;
+}
+
+.separator p:nth-of-type(3) {
+    width: 45%;
+    height: 1px;
+    border-top: 2px solid #dee1e6;
+    float: right;
+}
+
+.buttons-socials {
+    clear: both;
+    padding-top: 20px;
+    text-align: center;
+}
+
+.buttons-socials img {
+    margin-left: -35%;
+    margin-right: 15px;
+    border: none;
+    vertical-align: middle
+}
+
+.buttons-socials button {
+    width: 49%;
+    height: 35px;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 0.75rem;
+    border: none;
+    border-radius: 5px;
+}
+
+.button-fb {
+    background: #3163a2;
+}
+
+.button-tweeter {
+    background: #00aaf5;
 }
