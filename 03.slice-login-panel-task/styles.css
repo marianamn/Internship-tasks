@@ -22,38 +22,31 @@ body {
 }
 
 #container .login-modal {
-    margin: 0 auto;
-    width: 50%;
     padding-top: 50px;
-}
-
-#container .login-modal .modal {
-    width: 75%;
-    float: left;
+    justify-content: center;
+    display: flex;
+    flex-grow: 1;
+    flex-wrap: wrap;
 }
 
 .modal .modal-content {
     background-color: rgba(241, 249, 252, 0.8);
     border-radius: 5px;
-    margin: auto;
     padding: 40px 50px;
-    max-width: 440px;
+    width: 440px;
     box-shadow: 1px 9px 20px 0px #3163A2;
 }
 
 #container .login-modal .psd {
-    position: relative;
-    float: left;
-    width: 15%;
     background: #fdd521;
     border-radius: 10px 10px 10px 0;
     text-align: center;
-    padding-top: 25px;
-    padding-bottom: 25px;
     color: white;
     text-transform: uppercase;
     font-weight: bold;
     margin-left: 10px;
+    max-height: 30px;
+    padding: 25px;
 }
 
 #container .psd>p {
@@ -61,14 +54,11 @@ body {
 }
 
 #container .triangle {
-    width: 0;
-    height: 0;
     border-style: solid;
-    border-width: 25px 25px 0 0;
+    border-width: 20px 20px 0 0;
     border-color: #fdd521 transparent transparent transparent;
-    float: right;
     position: absolute;
-    margin-top: 24px;
+    margin: 20px -25px;
 }
 
 .form-title {
@@ -244,7 +234,8 @@ body {
     background: #00aaf5;
 }
 
-@media (max-width: 1280px) {
+
+/*@media (max-width: 1280px) {
     #container .login-modal {
         width: 60%;
     }
@@ -333,4 +324,4 @@ body {
     .separator p:nth-of-type(3) {
         width: 40%;
     }
-}
+}*/
