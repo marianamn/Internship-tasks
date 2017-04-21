@@ -1,0 +1,43 @@
+body,
+ul,
+li,
+div,
+a,
+h1 {
+  margin: 0;
+  padding: 0; }
+
+body {
+  font-size: 16px;
+  font-family: "Playfair Display", serif; }
+
+nav .navigation {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background: #003C5B;
+  list-style: none;
+  padding: 10px; }
+  nav .navigation li a {
+    text-decoration: none;
+    font-family: "Poppins", sans-serif;
+    color: #EBEDF3;
+    margin-right: 25px;
+    text-transform: uppercase;
+    font-weight: bold; }
+
+#container {
+  height: 100vh;
+  background: #0088CC; }
+  #container .inactive {
+    display: none; }
+  #container .view {
+    padding: 50px 20px;
+    text-align: justify;
+    width: 80%;
+    margin: 0 auto; }
+    #container .view h1 {
+      margin-bottom: 20px; }
+  #container .first-view {
+    background: #0088CC;
+    color: #EBEDF3; }

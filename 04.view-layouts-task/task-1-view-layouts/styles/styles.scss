@@ -1,0 +1,66 @@
+// variables
+$nav-background:#003C5B;
+$font-color-light:#EBEDF3;
+$first-view-background:#0088CC;
+$base-spacing:5px;
+$app-font: 'Playfair Display',
+serif;
+$menu-font: 'Poppins',
+sans-serif;
+// reset default styles
+body,
+ul,
+li,
+div,
+a,
+h1 {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-size: 16px;
+    font-family: $app-font;
+}
+
+nav {
+    .navigation {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        background: $nav-background;
+        list-style: none;
+        padding: $base-spacing*2;
+        li a {
+            text-decoration: none;
+            font-family: $menu-font;
+            color: $font-color-light;
+            margin-right: $base-spacing*5;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+    }
+}
+
+#container {
+    height: 100vh;
+    background: $first-view-background;
+    .inactive {
+        display: none;
+    }
+    .view {
+        padding: $base-spacing*10 $base-spacing*4;
+        text-align: justify;
+        width: 80%;
+        margin: 0 auto;
+        h1 {
+            margin-bottom: $base-spacing*4;
+        }
+    }
+    .first-view {
+        background: $first-view-background;
+        color: $font-color-light;
+    }
+    .second-view {}
+    .third-view {}
+}
