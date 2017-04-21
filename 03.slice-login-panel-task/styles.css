@@ -22,34 +22,40 @@ body {
 }
 
 #container .login-modal {
-    padding-top: 50px;
-    justify-content: center;
+    width: 100%;
+    height: 100%;
     display: flex;
-    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
 }
 
-.modal .modal-content {
+.modal-content {
+    position: relative;
     background-color: rgba(241, 249, 252, 0.8);
     border-radius: 5px;
-    padding: 40px 50px;
-    width: 440px;
+    padding: 50px 40px;
+    width: 360px;
     box-shadow: 1px 9px 20px 0px #3163A2;
 }
 
-#container .login-modal .psd {
+.psd {
     background: #fdd521;
     border-radius: 10px 10px 10px 0;
     text-align: center;
     color: white;
     text-transform: uppercase;
     font-weight: bold;
-    margin-left: 10px;
     max-height: 30px;
     padding: 25px;
+    position: absolute;
+    top: 0;
+    left: 450px;
+    width: 80px;
+    height: 80px;
 }
 
-#container .psd>p {
+.psd>p {
     font-size: 1.875rem;
 }
 
@@ -77,14 +83,6 @@ body {
     font-size: 0.75rem;
 }
 
-.pass {
-    position: relative;
-}
-
-.input-pass {
-    position: absolute;
-}
-
 .form-group input {
     width: 100%;
     height: 48px;
@@ -98,9 +96,14 @@ body {
     outline: none;
 }
 
-.button-show {
+.password-container {
     position: relative;
-    left: 83%;
+}
+
+.button-show {
+    position: absolute;
+    top: 0;
+    right: 10px;
     margin-top: 10px;
     height: 30px;
     width: 60px;
@@ -115,7 +118,7 @@ body {
 
 .checkbox {
     width: 100%;
-    margin-top: 20px;
+    margin-top: 10px;
     margin-bottom: 25px;
 }
 
@@ -234,94 +237,16 @@ body {
     background: #00aaf5;
 }
 
-
-/*@media (max-width: 1280px) {
-    #container .login-modal {
-        width: 60%;
+@media (max-width: 890px) {
+    .psd {
+        left: 50%;
+        top: -115px;
     }
 }
 
-@media (max-width: 1070px) {
-    #container .login-modal {
-        width: 80%;
-    }
-}
-
-@media (max-width: 800px) {
-    #container .login-modal {
-        width: 90%;
-    }
-    #container .login-modal .modal {
-        width: 80%;
-    }
-}
-
-@media (max-width: 660px) {
-    .button-show {
-        left: 80%;
-    }
-}
-
-@media (max-width: 580px) {
-    .button-show {
-        left: 78%;
-    }
-    #container .psd>p {
-        font-size: 1.5rem;
-    }
-}
-
-@media (max-width: 545px) {
-    .button-show {
-        left: 75%;
-    }
-    .separator>p:nth-of-type(1) {
-        width: 43%;
-    }
-    .separator p:nth-of-type(3) {
-        width: 43%;
-    }
-}
-
-@media (max-width: 490px) {
-    .button-show {
-        left: 70%;
-    }
-}
-
-@media (max-width: 461px) {
+@media (max-width: 310px) {
     .buttons-socials button {
         width: 100%;
         margin-bottom: 10px;
     }
 }
-
-@media (max-width: 425px) {
-    .button-show {
-        left: 65%;
-    }
-    #container .login-modal .modal {
-        width: 82%;
-    }
-}
-
-@media (max-width: 370px) {
-    #container .login-modal .psd {
-        display: none;
-    }
-    #container .login-modal .modal {
-        width: 95%;
-    }
-}
-
-@media (max-width: 320px) {
-    .button-show {
-        left: 60%;
-    }
-    .separator>p:nth-of-type(1) {
-        width: 40%;
-    }
-    .separator p:nth-of-type(3) {
-        width: 40%;
-    }
-}*/
