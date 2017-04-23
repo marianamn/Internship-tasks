@@ -1,13 +1,17 @@
 // variables
-$nav-background:#003C5B;
-$font-color-light:#EBEDF3;
+$nav-background:#3D697D;
+$body-background:#464B51;
+$font-color-light:#fff;
+$font-color-dark:#62666D;
 $first-view-background:#0088CC;
+$second-view-background:#F1E9DD;
+$third-view-background:#83AD97;
 $base-spacing:5px;
+$height: 100vh;
 $app-font: 'Playfair Display',
 serif;
 $menu-font: 'Poppins',
 sans-serif;
-// reset default styles
 body,
 ul,
 li,
@@ -21,21 +25,24 @@ h1 {
 body {
     font-size: 16px;
     font-family: $app-font;
+    background: $body-background;
+    background-size: cover;
+    opacity: 0.95;
 }
 
 nav {
-    .navigation {
+    #navigation {
         display: flex;
         flex-direction: row;
         justify-content: center;
         background: $nav-background;
         list-style: none;
-        padding: $base-spacing*2;
+        padding: $base-spacing*4;
         li a {
             text-decoration: none;
             font-family: $menu-font;
             color: $font-color-light;
-            margin-right: $base-spacing*5;
+            margin-right: $base-spacing*6;
             text-transform: uppercase;
             font-weight: bold;
         }
@@ -43,24 +50,42 @@ nav {
 }
 
 #container {
-    height: 100vh;
-    background: $first-view-background;
-    .inactive {
-        display: none;
+    height: $height;
+    overflow: hidden;
+    position: relative;
+    div {
+        height: $height;
+    }
+    div:nth-of-type(1) {
+        background: $first-view-background;
+        color: $font-color-light;
+    }
+    div:nth-of-type(2) {
+        background: $second-view-background;
+        color: $font-color-dark;
+    }
+    div:nth-of-type(3) {
+        background: $third-view-background;
+        color: $font-color-light;
     }
     .view {
-        padding: $base-spacing*10 $base-spacing*4;
+        position: absolute;
+        padding: $base-spacing*20;
         text-align: justify;
-        width: 80%;
-        margin: 0 auto;
+        top: 0;
+        opacity: 0;
+        transform: scale(0);
+        transition: 2s;
+        // -webkit-transform: translateX(-100%);
+        // transform: translateX(-100%);
+        // transition: 1s;
         h1 {
             margin-bottom: $base-spacing*4;
         }
     }
-    .first-view {
-        background: $first-view-background;
-        color: $font-color-light;
+    .current {
+        opacity: 1;
+        transform: scale(1);
+        transition: 2s;
     }
-    .second-view {}
-    .third-view {}
 }
