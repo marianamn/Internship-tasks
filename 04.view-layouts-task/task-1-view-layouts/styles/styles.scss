@@ -37,12 +37,12 @@ nav {
         justify-content: center;
         background: $nav-background;
         list-style: none;
-        padding: $base-spacing*4;
+        padding: $base-spacing * 4;
         li a {
             text-decoration: none;
             font-family: $menu-font;
             color: $font-color-light;
-            margin-right: $base-spacing*6;
+            margin-right: $base-spacing * 6;
             text-transform: uppercase;
             font-weight: bold;
         }
@@ -70,22 +70,81 @@ nav {
     }
     .view {
         position: absolute;
-        padding: $base-spacing*20;
         text-align: justify;
         top: 0;
-        opacity: 0;
-        transform: scale(0);
-        transition: 2s;
-        // -webkit-transform: translateX(-100%);
-        // transform: translateX(-100%);
-        // transition: 1s;
+        left: 0;
+        width: 100%;
+        -webkit-transform: translateX(0%);
+        transform: translateX(0%);
+        transition: transform .5s linear;
         h1 {
-            margin-bottom: $base-spacing*4;
+            margin-bottom: $base-spacing * 4;
+            padding: $base-spacing * 6 $base-spacing * 20;
+        }
+        article {
+            padding-left: $base-spacing * 20;
+            padding-right: $base-spacing * 20;
+        }
+        &.js-active {
+            z-index: 1;
+        }
+        &.left-to-right {
+            animation: .5s left-to-right forwards;
+        }
+        &.right-to-left {
+            animation: .5s right-to-left forwards;
+        }
+        &.center-to-left {
+            z-index: 1;
+            animation: .5s center-to-left forwards;
+        }
+        &.center-to-right {
+            z-index: 1;
+            animation: .5s center-to-right forwards;
         }
     }
-    .current {
-        opacity: 1;
-        transform: scale(1);
-        transition: 2s;
+}
+
+@keyframes left-to-right {
+    from {
+        left: -100%;
+        transform: translateX(0);
+    }
+    to {
+        left: -100%;
+        transform: translateX(100%);
+    }
+}
+
+@keyframes right-to-left {
+    from {
+        left: 100%;
+        transform: translateX(0);
+    }
+    to {
+        left: 100%;
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes center-to-left {
+    from {
+        left: 0;
+        transform: translateX(0);
+    }
+    to {
+        left: 0;
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes center-to-right {
+    from {
+        left: 0;
+        transform: translateX(0);
+    }
+    to {
+        left: 0;
+        transform: translateX(100%);
     }
 }
