@@ -119,9 +119,10 @@ body {
         left: 25px; }
 
 .comet {
-  width: 10px;
-  height: 10px;
-  background: red;
+  width: 50px;
+  height: 30px;
+  background: url(http://i477.photobucket.com/albums/rr132/batkarrett/Steves%20Crit/comet.png);
+  background-size: cover;
   top: 100px;
   left: 100px;
   position: absolute;
