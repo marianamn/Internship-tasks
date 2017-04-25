@@ -6,6 +6,8 @@ $font-color-dark:#62666D;
 $first-view-background:#0088CC;
 $second-view-background:#F1E9DD;
 $third-view-background:#83AD97;
+$fourth-view-background: #95e5bd;
+$fifth-view-background:#ebf2a7;
 $base-spacing:5px;
 $height: 100vh;
 $app-font: 'Playfair Display',
@@ -67,6 +69,14 @@ nav {
     div:nth-of-type(3) {
         background: $third-view-background;
         color: $font-color-light;
+    }
+    div:nth-of-type(4) {
+        background: $fourth-view-background;
+        color: $font-color-dark;
+    }
+    div:nth-of-type(5) {
+        background: $fifth-view-background;
+        color: $font-color-dark;
     }
     .view {
         position: absolute;

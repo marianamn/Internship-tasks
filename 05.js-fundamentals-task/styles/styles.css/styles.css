@@ -1,0 +1,29 @@
+body,
+div,
+p,
+input,
+select,
+input {
+  margin: 0;
+  padding: 0; }
+
+.hidden {
+  display: none; }
+
+#container {
+  margin-left: 20px; }
+  #container .order-message .order-message-error {
+    color: red; }
+  #container .order-message .order-message-success {
+    color: green; }
+  #container .order-form {
+    width: 400px;
+    padding: 10px 50px; }
+    #container .order-form .form-group {
+      margin-bottom: 20px;
+      display: flex; }
+      #container .order-form .form-group p {
+        width: 50px; }
+    #container .order-form input,
+    #container .order-form select {
+      width: 300px; }

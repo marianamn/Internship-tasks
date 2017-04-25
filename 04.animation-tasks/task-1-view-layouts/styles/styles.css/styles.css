@@ -44,6 +44,12 @@ nav #navigation {
   #container div:nth-of-type(3) {
     background: #83AD97;
     color: #fff; }
+  #container div:nth-of-type(4) {
+    background: #95e5bd;
+    color: #62666D; }
+  #container div:nth-of-type(5) {
+    background: #ebf2a7;
+    color: #62666D; }
   #container .view {
     position: absolute;
     text-align: justify;
