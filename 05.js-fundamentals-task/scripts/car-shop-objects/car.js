@@ -1,9 +1,3 @@
-// Кола (5 на брой, с различни характеристики) - с пропъртита за:
-//     * цена;
-//     * тип кола (estate, SUV, convertible);
-//     * цвят;
-//     * продава се (boolean, сетва се при осъществяване на продажба);
-
 var carsData = (function() {
     var cars = [],
         newCar = {},
@@ -13,6 +7,7 @@ var carsData = (function() {
         index = 0,
         i = 0;
 
+    // create 5 different cars
     for (i = 0; i < numberOfCars; ++i) {
         index = i;
         newCar.price = 1000 + i * 100;

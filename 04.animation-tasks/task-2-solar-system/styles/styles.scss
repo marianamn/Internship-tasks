@@ -8,6 +8,7 @@ $trajectory-color:#394057;
 $circle-radius:50%;
 $basic-container:250px;
 $planet-container:4px;
+$circle-font-size-base:5px;
 $view-height:100vh;
 @mixin transition-mixin($transition-property, $transition-duration, $transition-timing-function) {
     -webkit-transition: $transition-property $transition-duration $transition-timing-function;
@@ -50,6 +51,7 @@ span {
 
 body {
     background: $body-backgroud;
+    overflow: hidden;
 }
 
 #container {
@@ -66,7 +68,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    @include transition-mixin(all, 0.09s, ease-in);
     overflow: hidden;
     li {
         display: block;
@@ -87,84 +88,84 @@ body {
         background-image: -moz-linear-gradient( center bottom, rgb(204, 153, 0) 22%, rgb(255, 219, 112) 100%);
         border: none;
         box-shadow: 0 0 50px #c90;
-        @include transition-mixin(all, 0.2s, ease-in);
     }
     .mercury {
         width: $basic-container * 1.8;
         height: $basic-container * 1.8;
         border-radius: $circle-radius;
         @include animation-duration(5s);
-    }
-    .circle-mercury:before {
-        position: absolute;
-        content: ' \25CF';
-        color: $mercury-background;
-        font-size: 85px;
-        top: 60px;
-        left: 5px;
+        &:before {
+            position: absolute;
+            content: ' \25CF';
+            color: $mercury-background;
+            font-size: $circle-font-size-base * 17;
+            top: 60px;
+            left: 5px;
+        }
     }
     .venus {
         width: $basic-container * 2.6;
         height: $basic-container * 2.6;
         border-radius: $circle-radius;
         @include animation-duration(8s);
-    }
-    .circle-venus:before {
-        position: absolute;
-        content: ' \25CF';
-        color: $venus-background;
-        font-size: 195px;
-        top: 20px;
-        left: 5px;
+        &:before{
+            position: absolute;
+            content: ' \25CF';
+            color: $venus-background;
+            font-size:  $circle-font-size-base * 32;
+            top: 50px;
+            left: 5px;
+        }
     }
     .earth {
         width: $basic-container * 3.4;
         height: $basic-container * 3.4;
         border-radius: $circle-radius;
         @include animation-duration(12s);
-        span {
-            background: $earth-background;
+        .circle-earth {
             width: $planet-container * 20;
             height: $planet-container * 20;
             border-radius: $circle-radius;
-            top: 115px;
-            left: 5px;
+            background: $earth-background;
+            top: 370px;
+            left: -35px;
             @include animation-mixin(infinite, linear, moon);
             @include animation-duration(2s);
-            .moon {
-                width: $planet-container * 6;
-                height: $planet-container * 6;
-                border-radius: $circle-radius;
-                background: $moon-background;
-                top: 36px;
-                left: -35px;
-            }
+        }
+        .moon:before {
+            position: absolute;
+            content: ' \25CF';
+            color: $moon-background;
+            font-size:  $circle-font-size-base * 13;
+            top: 58px;
+            left: 5px;
         }
     }
 }
 
 .comet {
-    width: 110px;
+    width: 117px;
     height: 75px;
     background: url(http://i477.photobucket.com/albums/rr132/batkarrett/Steves%20Crit/comet.png);
     background-size: cover;
-    top: 5%;
-    left: 5%;
-    position: absolute;
-    animation: animationFrames linear 15s;
+    animation: animationFrames linear 5s;
     animation-iteration-count: 1;
-    transform-origin: 20% 50%;
+    animation-fill-mode: forwards;
+    z-index: 999;
 }
 
 @keyframes animationFrames {
     0% {
+        opacity: 0;
         transform: translate(0px, 0px);
     }
-    20% {
-        transform: translate(800px, 800px);
+     50% {
+        opacity: 1;
+        transform: translate(580px, 357px) rotate(-40deg);
     }
     100% {
-        transform: translate(-100%, 100%);
+        opacity: 0;
+        transform: translate(1400px, 1000px);
     }
 }
 

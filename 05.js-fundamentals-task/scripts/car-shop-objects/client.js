@@ -1,13 +1,3 @@
-// Клиент - 
-//   с пропъртита за:
-//     * налични средства;
-//     * желание за тип кола;
-//     * желание за цвят кола;
-//     * закупена кола, съдържащо нейните данни, ако има вече такава;
-//   с методи за:
-//     * задаване на запитване към магазина, според критериите (налични пари, тип на кола, цвят на кола);
-//     * задаване на закупената кола към пропъртито за закупена кола;
-
 var clientData = (function() {
     var client = {
         name: String,
@@ -15,13 +5,13 @@ var clientData = (function() {
         wantedType: String,
         wantedColor: String,
         boughtCars: [],
-        requestForCar: function(name, car) {
+        requestForCar: function() {
             var request = {
-                name: name,
+                name: this.name,
                 car: {
-                    amount: car.amount,
-                    type: car.type,
-                    color: car.color
+                    price: this.availableAmount,
+                    type: this.wantedType,
+                    color: this.wantedColor
                 }
             };
 
