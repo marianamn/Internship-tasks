@@ -1,7 +1,7 @@
 var carsData = (function() {
     var cars = [],
         newCar = {},
-        colors = ["red", "black", "white", "green", "yellow"],
+        colors = ["red", "black", "white", "green", "red"],
         types = ["estate", "SUV", "convertable"],
         numberOfCars = 5,
         index = 0,
@@ -10,6 +10,7 @@ var carsData = (function() {
     // create 5 different cars
     for (i = 0; i < numberOfCars; ++i) {
         index = i;
+        newCar.id = i + 1;
         newCar.price = 1000 + i * 100;
 
         if (index > 2) {

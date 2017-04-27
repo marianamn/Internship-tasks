@@ -2,13 +2,12 @@ var storeData = (function() {
     var store = {
         cars: [],
         soldCarsList: [],
-        soldCar: function(car) {
+        matchedCars: [],
+        soldCar: function(id) {
             var index = 0;
             
             for (var i = 0; i < this.cars.length; ++i) {
-                if (this.cars[i].price === car.price &&
-                    this.cars[i].type === car.type.toLowerCase() &&
-                    this.cars[i].color === car.color.toLowerCase()) {
+                if (this.cars[i].id === id) {
                     index = i;
                     break;
                 }
@@ -27,7 +26,7 @@ var storeData = (function() {
                     this.cars[i].type === type &&
                     this.cars[i].color === color) {
                     isCarInTheStore = true;
-                    break;
+                    this.matchedCars.push(cars[i]);
                 }
             }
 
