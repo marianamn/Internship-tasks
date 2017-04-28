@@ -1,0 +1,29 @@
+@mixin transition-mixin($transition-property, $transition-duration, $transition-timing-function) {
+    -webkit-transition: $transition-property $transition-duration $transition-timing-function;
+    -moz-transition: $transition-property $transition-duration $transition-timing-function;
+    -o-transition: $transition-property $transition-duration $transition-timing-function;
+    transition: $transition-property $transition-duration $transition-timing-function;
+}
+
+@mixin animation-mixin($iteration-count, $timing-function, $animation-name) {
+    -webkit-animation-iteration-count: $iteration-count;
+    -webkit-animation-timing-function: $timing-function;
+    -webkit-animation-name: $animation-name;
+    -moz-animation-iteration-count: $iteration-count;
+    -moz-animation-timing-function: $timing-function;
+    -moz-animation-name: $animation-name;
+    animation-iteration-count: $iteration-count;
+    animation-timing-function: $timing-function;
+    animation-name: $animation-name;
+}
+
+@mixin animation-duration($duration) {
+    -webkit-animation-duration: $duration;
+    -moz-animation-duration: $duration;
+    animation-duration: $duration;
+}
+
+@mixin rotate($degree) {
+    -webkit-transform: rotate($degree);
+    -moz-transform: rotate($degree);
+}

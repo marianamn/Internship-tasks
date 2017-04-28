@@ -1,12 +1,4 @@
-$error-color:#AB4442;
-$error-background:#F2DEDE;
-$success-color:#3C763D;
-$success-background:#DFF0D8;
-$form-border: gray;
-$font-color:#41526d;
-$font-color-light:#fff;
-$body-background:#3a4c68;
-$form-background: whitesmoke;
+@import 'variables';
 body,
 div,
 p,
@@ -18,7 +10,7 @@ input {
 }
 
 body{
-    background: $body-background;
+    background: $dark-background;
     color: $font-color-light;
 }
 
@@ -27,16 +19,16 @@ body{
 }
 
 #container {
-    width: 90%;
+    width: 80%;
     margin: 0 auto;
     h1{
         text-align: center;
         text-transform: uppercase;
         color: $font-color-light;
-        margin-bottom: 50px;
+        margin-bottom: $base-px * 10;
     }
     .order-message {
-        width: 600px;
+        width: $base-px * 120;
         margin-left: auto;
         margin-right: auto;
         text-align: center;
@@ -45,49 +37,84 @@ body{
         .order-message-error {
             color: $error-color;            
             background: $error-background;
-            margin-bottom: 25px;
-            padding: 10px;
+            margin-bottom: $base-px * 5;
+            padding: $base-px * 2;
         }
         .order-message-success {
             color: $success-color;
             background: $success-background;
-            margin-bottom: 25px;
-            padding: 10px;
+            margin-bottom: $base-px * 5;
+            padding: $base-px * 2;
         }
     }
     .order-form {
-        width: 500px;
-        padding:50px 50px 25px 50px;
-        box-shadow: 0px 0px 10px 0px $form-background;
+        width: $base-px * 100;
+        padding:$base-px * 10 $base-px * 10 $base-px * 5 $base-px * 5;
+        box-shadow: 0 0 $base-px * 2 0 $light-background;
         margin-left: auto;
         margin-right: auto;
         color: $font-color;
-        background: $form-background;
+        background: $light-background;
         .form-group {
-            margin-bottom: 25px;
+            margin-bottom: $base-px * 5;
             display: flex;
             p {
                 width: 15%;
                 text-align: left;
-                height: 25px;
-                padding-top: 5px;
+                height: $base-px * 5;
+                padding-top: $base-px;
             }
             input,
             select {
                 width: 85%;
-                height: 25px;
-                padding-left: 5px;
+                height: $base-px * 5;
+                padding-left: $base-px;
+            }
+            input:focus,
+            select:focus{
+                outline: none;
             }
         }
         #btn-order{
             width: 100%;
-            height: 35px;
-            margin-top: 10px;
-            background: $body-background;
+            height: $base-px * 7;
+            margin-top: $base-px * 2;
+            background: $dark-background;
             color: $font-color-light;
             text-transform: uppercase;
             font-weight: bold;
             border: none;
         }
     }
+    .cars-wrapper{
+        text-align: center;
+        .cars-details-wrapper{
+            display: flex;
+        }
+        .car-details{
+            border: 1px solid $font-color-light;
+            height: $base-px * 20;
+            padding: $base-px * 5;
+            background: $light-background;
+            margin-left: $base-px * 5;
+            line-height: 1.5rem;
+            color: $dark-background;
+            text-transform: capitalize;
+            flex: 1 0 auto;
+        }
+        .btn-buy{
+            width: 100%;
+            background: $dark-background;
+            border: none;
+            color: $font-color-light;
+            padding: $base-px;
+            margin-top: $base-px * 2;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+    }
+}
+
+h2{
+    margin: $base-px * 10 0 $base-px * 10 0;
 }

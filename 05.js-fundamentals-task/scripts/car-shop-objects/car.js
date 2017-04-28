@@ -16,6 +16,8 @@ var carsData = (function() {
         if (index > 2) {
             index = 0;
         }
+
+        // select random index from types array
         newCar.type = types[index];
         newCar.color = colors[i];
         newCar.forSale = true;

@@ -26,12 +26,10 @@ orderBtn.addEventListener("click", function (e) {
 
         getElement(".order-message-error").classList.add("hidden");
         getElement(".order-form").classList.add("hidden");
-
-
     } else {
         getElement(".order-message-error").classList.remove("hidden");
     }
-}, false);
+});
 
 function getElement(selector) {
     return document.querySelector(selector);
@@ -42,22 +40,23 @@ function createElement(element) {
 }
 
 function showClientMatchedCars() {
-    printCars(store.matchedCars, "List of matched cars:");
+    printCars(store.matchedCars, "Matched cars:", "matched");
 }
 
 function showStoreAvailableCars() {
-    printCars(store.cars, "Store available cars list:");
-    getElement(".btn-buy").classList.add("hidden");
+    printCars(store.cars, "Store remaining available cars:", "available");
 }
 
-function printCars(items, heding) {
+function printCars(items, heading, selector) {
     var fragment = document.createDocumentFragment(),
         carsWrapperDiv = createElement("div"),
-        title = createElement("h2");
+        detailsWrapperDiv = createElement("div")
+    title = createElement("h2");
 
     carsWrapperDiv.classList.add("cars-wrapper");
+    detailsWrapperDiv.classList.add("cars-details-wrapper");
 
-    title.textContent = heding;
+    title.textContent = heading;
     carsWrapperDiv.appendChild(title);
 
     for (var i = 0; i < items.length; i++) {
@@ -65,53 +64,59 @@ function printCars(items, heding) {
             carDetailsAmontP = createElement("p"),
             carDetailsColorP = createElement("p"),
             carDetailsTypeP = createElement("p"),
-            buyBtn = createElement("button");
+            curentCar;
 
         carDetailsDiv.classList.add("car-details");
-        buyBtn.classList.add("btn-buy");
-        buyBtn.setAttribute("data-id", items[i].id);
-
         carDetailsAmontP.textContent = "Price: " + items[i].price;
         carDetailsColorP.textContent = "Color: " + items[i].color;
         carDetailsTypeP.textContent = "Type: " + items[i].type;
-        buyBtn.textContent = "Buy";
 
         carDetailsDiv.appendChild(carDetailsAmontP);
         carDetailsDiv.appendChild(carDetailsColorP);
         carDetailsDiv.appendChild(carDetailsTypeP);
-        carDetailsDiv.appendChild(buyBtn);
-        carsWrapperDiv.appendChild(carDetailsDiv);
+
+        if (selector === "matched") {
+            var buyBtn = createElement("button");
+
+            buyBtn.classList.add("btn-buy");
+            buyBtn.setAttribute("data-id", items[i].id);
+            buyBtn.textContent = "Buy";
+            carDetailsDiv.appendChild(buyBtn);
+
+            buyBtn.addEventListener("click", buySelectedCar);
+        }
+
+        detailsWrapperDiv.appendChild(carDetailsDiv);
+        carsWrapperDiv.appendChild(detailsWrapperDiv);
         fragment.appendChild(carsWrapperDiv);
-
-        buyBtn.addEventListener("click", function (e) {
-            e.preventDefault();
-            var boughtCarId = i,
-                boughtCar = {};
-
-            boughtCar.id = i;
-            boughtCar.price = items[i].price;
-            boughtCar.color = items[i].color;
-            boughtCar.type = items[i].type;
-
-            client.addCar(boughtCar);
-            store.soldCar(boughtCarId);
-            store.soldCarsList.push({
-                saleDate: new Date(),
-                car: boughtCar,
-                owner: request.name
-            });
-
-            console.log("Initial sold cars", store.soldCarsList);
-            console.log("Mached cars", store.matchedCars);
-            console.log("Client bought cars", client.boughtCars);
-            console.log(boughtCarId);
-
-            getElement(".order-message-success").classList.remove("hidden");
-            getElement(".cars-wrapper").classList.add("hidden");
-
-            showStoreAvailableCars();
-        }, false);
     }
 
     container.appendChild(fragment);
+}
+
+function buySelectedCar(e) {
+    e.preventDefault();
+
+    var currentId = Number(e.target.getAttribute("data-id"));
+    boughtCar = {};
+
+    for (var i = 0; i < store.cars.length; i++) {
+        if (store.cars[i].id === currentId) {
+            boughtCar = store.cars[i];
+            break;
+        }
+    }
+
+    client.addCar(boughtCar);
+    store.soldCar(boughtCar.id);
+    store.soldCarsList.push({
+        saleDate: new Date(),
+        car: boughtCar,
+        owner: request.name
+    });
+
+    getElement(".order-message-success").classList.remove("hidden");
+    getElement(".cars-wrapper").classList.add("hidden");
+
+    showStoreAvailableCars();
 }

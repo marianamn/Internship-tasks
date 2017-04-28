@@ -53,9 +53,9 @@ body {
     width: 450px;
     height: 450px;
     border-radius: 50%;
-    -webkit-animation-duration: 5s;
-    -moz-animation-duration: 5s;
-    animation-duration: 5s; }
+    -webkit-animation-duration: 7s;
+    -moz-animation-duration: 7s;
+    animation-duration: 7s; }
     .solarsystem .mercury:before {
       position: absolute;
       content: ' \25CF';
@@ -67,9 +67,9 @@ body {
     width: 650px;
     height: 650px;
     border-radius: 50%;
-    -webkit-animation-duration: 8s;
-    -moz-animation-duration: 8s;
-    animation-duration: 8s; }
+    -webkit-animation-duration: 12s;
+    -moz-animation-duration: 12s;
+    animation-duration: 12s; }
     .solarsystem .venus:before {
       position: absolute;
       content: ' \25CF';
@@ -81,9 +81,9 @@ body {
     width: 850px;
     height: 850px;
     border-radius: 50%;
-    -webkit-animation-duration: 12s;
-    -moz-animation-duration: 12s;
-    animation-duration: 12s; }
+    -webkit-animation-duration: 14s;
+    -moz-animation-duration: 14s;
+    animation-duration: 14s; }
     .solarsystem .earth .circle-earth {
       width: 80px;
       height: 80px;
@@ -100,9 +100,9 @@ body {
       animation-iteration-count: infinite;
       animation-timing-function: linear;
       animation-name: moon;
-      -webkit-animation-duration: 2s;
-      -moz-animation-duration: 2s;
-      animation-duration: 2s; }
+      -webkit-animation-duration: 3s;
+      -moz-animation-duration: 3s;
+      animation-duration: 3s; }
     .solarsystem .earth .moon:before {
       position: absolute;
       content: ' \25CF';
@@ -125,11 +125,10 @@ body {
   0% {
     opacity: 0;
     transform: translate(0px, 0px); }
-  50% {
+  40% {
     opacity: 1;
-    transform: translate(580px, 357px) rotate(-40deg); }
+    transform: translate(580px, 380px); }
   100% {
-    opacity: 0;
     transform: translate(1400px, 1000px); } }
 
 @keyframes orbit {

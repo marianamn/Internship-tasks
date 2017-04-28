@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JS game task</title>
+</head>
+
+<body>
+    <div class="container">
+        <form class="user-input">
+            <!--initial player input-->
+            <div class="step-initial-data">
+                <div class="form-group">
+                    <p>Name:</p>
+                    <input type="text" id="input-name">
+                </div>
+
+                <div class="form-group">
+                    <p>Total sum:</p>
+                    <input type="number" id="input-total-sum">
+                </div>
+
+                <div class="form-group">
+                    <button id="btn-start">Start</button>
+                </div>
+            </div>
+
+            <!--current game sum input-->
+            <div class="step-start-game hidden">
+                <div class="form-group">
+                    <p>Current sum:</p>
+                    <input type="number" id="input-current-sum">
+                </div>
+
+                <div class="form-group">
+                    <button id="btn-current-sum">Submit</button>
+                </div>
+            </div>
+
+            <!--choose ball under wich glass to be put-->
+            <div class="step-shoose-glass hidden">
+                <div class="form-group">
+                    <p>Choose glass:</p>
+                    <select name="ball" id="input-ball">
+                        <option selected disabled style='display: none' value=''></option>
+                        <option class="selected-option" value="1">1</option>
+                        <option class="selected-option" value="2">2</option>
+                        <option class="selected-option" value="3">3</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <button id="btn-chosen-glass">Submit</button>
+                </div>
+            </div>
+
+            <!--guess which is the right glass-->
+            <div class="step-shoose-glass hidden">
+                <div class="form-group">
+                    <p>Guess the glass:</p>
+                    <select name="glass" id="input-glass">
+                        <option selected disabled style='display: none' value=''></option>
+                        <option class="selected-option" value="1">1</option>
+                        <option class="selected-option" value="2">2</option>
+                        <option class="selected-option" value="3">3</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <button id="btn-guess-glass">Submit</button>
+                </div>
+            </div>
+
+            <!--continue game-->
+            <div class="step-shoose-glass hidden">
+                <div class="form-group">
+                    <p>Do you want to continue?</p>
+                    <select name="game-continue" id="input-game-continue">
+                        <option selected disabled style='display: none' value=''></option>
+                        <option class="selected-option" value="Yes">Yes</option>
+                        <option class="selected-option" value="No">No</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <button id="btn-game-continue">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

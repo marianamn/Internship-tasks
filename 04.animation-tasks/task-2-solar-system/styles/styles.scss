@@ -1,44 +1,5 @@
-$body-backgroud:#080e24;
-$sun-background:#fc3;
-$mercury-background:#b6bac5;
-$venus-background:#bf8639;
-$earth-background:#06c;
-$moon-background:#ccc;
-$trajectory-color:#394057;
-$circle-radius:50%;
-$basic-container:250px;
-$planet-container:4px;
-$circle-font-size-base:5px;
-$view-height:100vh;
-@mixin transition-mixin($transition-property, $transition-duration, $transition-timing-function) {
-    -webkit-transition: $transition-property $transition-duration $transition-timing-function;
-    -moz-transition: $transition-property $transition-duration $transition-timing-function;
-    -o-transition: $transition-property $transition-duration $transition-timing-function;
-    transition: $transition-property $transition-duration $transition-timing-function;
-}
-
-@mixin animation-mixin($iteration-count, $timing-function, $animation-name) {
-    -webkit-animation-iteration-count: $iteration-count;
-    -webkit-animation-timing-function: $timing-function;
-    -webkit-animation-name: $animation-name;
-    -moz-animation-iteration-count: $iteration-count;
-    -moz-animation-timing-function: $timing-function;
-    -moz-animation-name: $animation-name;
-    animation-iteration-count: $iteration-count;
-    animation-timing-function: $timing-function;
-    animation-name: $animation-name;
-}
-
-@mixin animation-duration($duration) {
-    -webkit-animation-duration: $duration;
-    -moz-animation-duration: $duration;
-    animation-duration: $duration;
-}
-
-@mixin rotate($degree) {
-    -webkit-transform: rotate($degree);
-    -moz-transform: rotate($degree);
-}
+@import 'variables';
+@import 'mixins';
 
 body,
 section,
@@ -93,7 +54,7 @@ body {
         width: $basic-container * 1.8;
         height: $basic-container * 1.8;
         border-radius: $circle-radius;
-        @include animation-duration(5s);
+        @include animation-duration($basic-speed + 5);
         &:before {
             position: absolute;
             content: ' \25CF';
@@ -107,7 +68,7 @@ body {
         width: $basic-container * 2.6;
         height: $basic-container * 2.6;
         border-radius: $circle-radius;
-        @include animation-duration(8s);
+        @include animation-duration($basic-speed * 6);
         &:before{
             position: absolute;
             content: ' \25CF';
@@ -121,7 +82,7 @@ body {
         width: $basic-container * 3.4;
         height: $basic-container * 3.4;
         border-radius: $circle-radius;
-        @include animation-duration(12s);
+        @include animation-duration($basic-speed * 7);
         .circle-earth {
             width: $planet-container * 20;
             height: $planet-container * 20;
@@ -130,7 +91,7 @@ body {
             top: 370px;
             left: -35px;
             @include animation-mixin(infinite, linear, moon);
-            @include animation-duration(2s);
+            @include animation-duration($basic-speed + 1);
         }
         .moon:before {
             position: absolute;
@@ -159,12 +120,11 @@ body {
         opacity: 0;
         transform: translate(0px, 0px);
     }
-     50% {
+    40% {
         opacity: 1;
-        transform: translate(580px, 357px) rotate(-40deg);
+        transform: translate(580px, 380px);
     }
     100% {
-        opacity: 0;
         transform: translate(1400px, 1000px);
     }
 }

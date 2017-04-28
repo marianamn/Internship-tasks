@@ -1,9 +1,9 @@
 var clientData = (function() {
     var client = {
-        name: String,
-        availableAmount: Number,
-        wantedType: String,
-        wantedColor: String,
+        name: "",
+        availableAmount: 0,
+        wantedType: "",
+        wantedColor: "",
         boughtCars: [],
         requestForCar: function() {
             var request = {
