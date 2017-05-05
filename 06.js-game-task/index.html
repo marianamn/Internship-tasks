@@ -11,43 +11,40 @@
 </head>
 
 <body>
-    <div class="container">
-        <form id="user-input">
+    <div id="container">
+        <h1 class="game-heading">Cups game</h1>
+        <form class="user-input">
             <!--initial player input-->
             <div class="step-initial-data">
                 <div class="form-group">
-                    <p>Name:</p>
-                    <input type="text" class="input-name">
+                    <input type="text" class="input-name" placeholder="Name:">
                 </div>
 
                 <div class="form-group">
-                    <p>Total sum:</p>
-                    <input type="number" class="input-total-sum">
+                    <input type="number" class="input-total-sum" placeholder="Total sum:">
                 </div>
 
                 <div class="form-group">
-                    <button id="btn-start">Start</button>
+                    <button id="btn-start">Submit</button>
                 </div>
             </div>
 
             <!--current game sum input-->
             <div class="step-current-sum hidden">
                 <div class="form-group">
-                    <p>Current sum:</p>
-                    <input type="number" class="input-current-sum">
+                    <input type="number" class="input-current-sum" placeholder="Current game sum:">
                 </div>
 
                 <div class="form-group">
-                    <button id="btn-current-sum">Submit</button>
+                    <button id="btn-current-sum">Start</button>
                 </div>
             </div>
 
-            <!--choose ball under wich glass to be put-->
-            <div class="step-shoose-glass hidden">
+            <!--choose ball under wich cup to be put-->
+            <div class="step-shoose-cup hidden">
                 <div class="form-group">
-                    <p>Choose glass:</p>
                     <select name="ball" class="input-ball">
-                        <option value=''></option>
+                        <option value='' disabled selected>Choose cup to put ball under:</option>
                         <option class="selected-option" value="1">1</option>
                         <option class="selected-option" value="2">2</option>
                         <option class="selected-option" value="3">3</option>
@@ -55,16 +52,15 @@
                 </div>
 
                 <div class="form-group">
-                    <button id="btn-chosen-glass">Submit</button>
+                    <button id="btn-chosen-cup">Submit</button>
                 </div>
             </div>
 
-            <!--guess which is the right glass-->
-            <div class="step-guess-glass hidden">
+            <!--guess which is the right cup-->
+            <div class="step-guess-cup hidden">
                 <div class="form-group">
-                    <p>Guess the glass:</p>
-                    <select name="glass" class="input-glass">
-                        <option value=''></option>
+                    <select name="cup" class="input-cup">
+                        <option value='' disabled selected>Guess the correct cup:</option>
                         <option class="selected-option" value="1">1</option>
                         <option class="selected-option" value="2">2</option>
                         <option class="selected-option" value="3">3</option>
@@ -72,16 +68,15 @@
                 </div>
 
                 <div class="form-group">
-                    <button id="btn-guess-glass">Submit</button>
+                    <button id="btn-guess-cup">Submit</button>
                 </div>
             </div>
 
             <!--continue game-->
             <div class="step-game-continue hidden">
                 <div class="form-group">
-                    <p>Do you want to continue?</p>
                     <select name="game-continue" class="input-game-continue">
-                        <option value=''></option>
+                        <option value='' disabled selected>Do you want to continue?</option>
                         <option class="selected-option" value="Yes">Yes</option>
                         <option class="selected-option" value="No">No</option>
                     </select>
@@ -93,14 +88,48 @@
             </div>
         </form>
 
+        <!--cups UI-->
+        <div class="game-ui hidden">
+            <div class="cups-wrapper">
+                <div class="cups">
+                    <img class="img-cup" src="http://www.petalprinting.com/media/catalog/product/cache/1/image/650x650/9df78eab33525d08d6e5fb8d27136e95/m/e/medium_cup_green_4.png"
+                        alt="cup-image">
+                </div>
+                <div class="cups">
+                    <img class="img-cup" src="http://www.petalprinting.com/media/catalog/product/cache/1/image/650x650/9df78eab33525d08d6e5fb8d27136e95/m/e/medium_cup_green_4.png"
+                        alt="cup-image">
+                </div>
+                <div class="cups">
+                    <img class="img-cup" src="http://www.petalprinting.com/media/catalog/product/cache/1/image/650x650/9df78eab33525d08d6e5fb8d27136e95/m/e/medium_cup_green_4.png"
+                        alt="cup-image">
+                </div>
+            </div>
+
+            <div class="ball-list">
+                <p><img class="ball hidden" src="http://q.likesuccess.com/80/3982192-bouncy-ball-bouncing.jpg" data-id="1" alt="ball-image"></p>
+                <p><img class="ball hidden" src="http://q.likesuccess.com/80/3982192-bouncy-ball-bouncing.jpg" data-id="2" alt="ball-image"></p>
+                <p><img class="ball hidden" src="http://q.likesuccess.com/80/3982192-bouncy-ball-bouncing.jpg" data-id="3" alt="ball-image"></p>
+            </div>
+
+            <div class="tabel"></div>
+        </div>
+
+        <!--game over-->
         <div class="game-over hidden">
-            <h2>Game over!</h2>
-            <p class="winner-name"></p>
-            <p class="winner-score"></p>
+            <h1>Game over!</h1>
+            <h3 class="winner-name"></h3>
+
+            <div class="results-wrapper">
+                <p class="winner-score"></p>
+                <p class="opponent-score"></p>
+            </div>
         </div>
     </div>
 
-    <script src="./scripts/main.js"></script>
+    <script src="./scripts/utils.js"></script>
+    <script src="./scripts/game-renderer.js"></script>
+    <script src="./scripts/game-engine.js"></script>
+    <script src="./scripts/game-start.js"></script>
 </body>
 
 </html>

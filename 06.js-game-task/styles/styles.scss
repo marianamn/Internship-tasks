@@ -1,3 +1,181 @@
-.hidden{
+body,
+p,
+div,
+h2,
+button,
+img {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    //background: url("../../images/background.jpg");
+    background: #4192af;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    background-size: cover;
+    height: 100vh;
+    overflow-y: hidden;
+}
+
+.hidden {
     display: none;
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    .game-heading {
+        text-align: center;
+        text-transform: uppercase;
+        color: #255984;
+    }
+    .user-input {
+        text-align: center;
+        padding: 10px;
+        width: 500px;
+        margin: 25px auto;
+    }
+    .form-group {
+    padding: 10px;
+        input,
+        select{
+            border: 1px solid lightgray;
+            padding-left: 5px;
+            height: 30px;
+        }
+        input{
+            width: 98%
+        }
+        select{
+            width: 100%;
+        }
+    }
+    button {
+        padding: 5px;
+        width: 100%;
+        height: 30px;
+        background: #255984;
+        color: white;
+        text-transform: uppercase;
+        border: none;
+        box-shadow: 3px 5px 5px 0px #2f6591;
+    }
+    .game-over {
+        text-align: center;
+        padding: 50px 0;
+        height: 100%;
+        h1{
+            font-size: 3.5rem;
+        }
+        .results-wrapper {
+            display: flex;
+            justify-content: center;
+            p{
+                flex: 1 auto;
+            }
+        }
+        .winner-score,
+        .opponent-score {
+            color: darkseagreen;
+            font-size: 1.8rem;
+        }
+    }
+}
+
+.game-ui {
+    position: relative;
+    margin: auto;
+    .cups-wrapper {
+        display: flex;
+        align-self: center;
+        .cups {
+            text-align: center;
+            flex: 1 0 auto;
+        }
+        .img-cup {
+            width: 250px;
+            height: 220px;
+            margin-right:50px;
+            -ms-transform: rotate(180deg);
+            -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+            z-index: 999;
+        }
+    }
+    .ball-list {
+        display: flex;
+        p{
+            flex: 1 0 auto;
+            position: relative;
+            margin-top: -53px;
+            text-align: center;
+        }
+        .ball {
+            position: absolute;
+            left: 100px;
+            width: 45px;
+            height: 45px;
+        }
+    }
+    .tabel {
+        height: 25px;
+        background: #663300;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: -10px;
+    }
+}
+
+.animate-cups {
+    animation: moveUpDown .6s ease-in-out both;
+}
+
+@keyframes moveUpDown {
+    50% {
+        transform: translateY(-60%);
+    }
+}
+
+// shuffle cups
+.left {
+     animation: moveLeft .6s ease-in-out;
+}
+
+@keyframes moveLeft {
+    100% {
+         transform: translateX(-200%);
+    }
+}
+
+.right {
+     animation: moveRight .6s ease-in-out;
+}
+
+@keyframes moveRight {
+    100% {
+         transform: translateX(200%);
+    }
+}
+
+.middle-left {
+     animation: moveMiddleToLeft .6s ease-in-out;
+}
+
+@keyframes moveMiddleToLeft {
+    100% {
+         transform: translateX(-100%);
+    }
+}
+
+.middle-right {
+     animation: moveMiddleToRight .6s ease-in-out;
+}
+
+@keyframes moveMiddleToRight {
+    100% {
+         transform: translateX(100%);
+    }
 }
