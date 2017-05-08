@@ -1,4 +1,4 @@
-var engine = (function () {
+var engine = (function() {
     var playerName = "",
         totalPlayerSum = 0,
         currentGameSum = 0,
@@ -80,7 +80,7 @@ var engine = (function () {
     function guessCup(e) {
         e.preventDefault();
 
-        guessedCup = parseInt(elementsList.inputGuessedCup).value;
+        guessedCup = parseInt(elementsList.inputGuessedCup.value);
 
         if (guessedCup === ballPosition) {
             totalPlayerSum += currentGameSum;
