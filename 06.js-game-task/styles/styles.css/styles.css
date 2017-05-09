@@ -27,6 +27,31 @@ body {
     text-align: center;
     text-transform: uppercase;
     color: #255984; }
+  #container .game-container {
+    width: 200px;
+    text-align: center;
+    width: 700px;
+    height: 250px;
+    background: #fff;
+    margin: 10px auto;
+    color: #255984;
+    box-shadow: 0 0 20px 1px #255984; }
+    #container .game-container .score-container .bet {
+      color: #4192AF; }
+    #container .game-container .score-container .score-panel {
+      line-height: 1.5rem; }
+    #container .game-container .score-container .flex-container {
+      display: flex; }
+    #container .game-container .score-container .lets-play {
+      color: #4192AF;
+      font-size: 1.8rem;
+      text-transform: uppercase;
+      margin-top: 25px; }
+    #container .game-container .score-container .score {
+      flex: 1 0 auto;
+      margin: 10px;
+      text-align: center;
+      padding: 10px; }
   #container .user-input {
     text-align: center;
     padding: 10px;
@@ -96,13 +121,24 @@ body {
       position: absolute;
       left: 100px;
       width: 45px;
-      height: 45px; }
+      height: 45px;
+      z-index: 1; }
   .game-ui .tabel {
     height: 25px;
     background: #663300;
     margin-left: auto;
     margin-right: auto;
     margin-top: -10px; }
+
+.wrong {
+  margin-bottom: 20px;
+  font-size: 2rem;
+  color: darkred; }
+
+.correct {
+  margin-bottom: 20px;
+  font-size: 2rem;
+  color: green; }
 
 .animate-cups {
   animation: moveUpDown .6s ease-in-out both; }

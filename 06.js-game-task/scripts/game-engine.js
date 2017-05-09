@@ -1,4 +1,4 @@
-var engine = (function() {
+var gameEngine = (function () {
     var playerName = "",
         totalPlayerSum = 0,
         currentGameSum = 0,
@@ -11,7 +11,14 @@ var engine = (function() {
 
     function initialize() {
         return {
+            homeScreen: utils.getElement(".lets-play"),
+            scorePanel: utils.getElement(".score-panel"),
             playerName: utils.getElement(".input-name"),
+            playerNameUI: utils.getElement(".player-name"),
+            playerScoreUI: utils.getElement(".player-score"),
+            computerScoreUI: utils.getElement(".computer-score"),
+            currentBetUI: utils.getElement(".current-bet"),
+            bet: utils.getElement(".bet"),
             totalPlayerSum: utils.getElement(".input-total-sum"),
             formInitialPlayerData: utils.getElement(".step-initial-data"),
             formCurrentSum: utils.getElement(".step-current-sum"),
@@ -29,7 +36,8 @@ var engine = (function() {
             gameHeading: utils.getElement(".game-heading"),
             winnerName: utils.getElement(".winner-name"),
             winnerScore: utils.getElement(".winner-score"),
-            opponentScore: utils.getElement(".opponent-score")
+            opponentScore: utils.getElement(".opponent-score"),
+            showGuessInfo: utils.getElement(".show-the-guess-info")
         }
 
     }
@@ -43,7 +51,13 @@ var engine = (function() {
         totalPlayerSum = parseInt(elementsList.totalPlayerSum.value);
         totalOpponentSum = totalPlayerSum;
 
+        elementsList.playerNameUI.textContent = playerName;
+        elementsList.playerScoreUI.textContent = totalPlayerSum;
+        elementsList.computerScoreUI.textContent = totalOpponentSum;
+
         elementsList.formInitialPlayerData.classList.add("hidden");
+        elementsList.homeScreen.classList.add("hidden");
+        elementsList.scorePanel.classList.remove("hidden");
         elementsList.formCurrentSum.classList.remove("hidden");
     }
 
@@ -52,7 +66,15 @@ var engine = (function() {
 
         currentGameSum = parseInt(elementsList.inputCurrentSum.value);
 
+        if(currentGameSum < currentGameSum){
+            currentGameSum = currentGameSum;
+
+        }
+
+        elementsList.currentBetUI.textContent = currentGameSum;
+
         elementsList.formCurrentSum.classList.add("hidden");
+        elementsList.bet.classList.remove("hidden");
         elementsList.formChooseCup.classList.remove("hidden");
 
         // print cups
@@ -64,6 +86,7 @@ var engine = (function() {
         e.preventDefault();
 
         choosenCup = parseInt(elementsList.inputChoosenCup.value);
+        // choosenCup = parseInt(e.target.parentNode.getAttribute("value"));
 
         console.log(playerName + " put the ball under cup: " + choosenCup);
         gameRenderer.showBallUnderCup(choosenCup);
@@ -71,7 +94,8 @@ var engine = (function() {
         // randomize balls
         ballPosition = utils.getRandomInt(1, 3);
         console.log("Shaking cups....");
-        gameRenderer.shuffleCups();
+        gameRenderer.shuffleCups(choosenCup);
+        console.log(ballPosition);
 
         elementsList.formChooseCup.classList.add("hidden");
         elementsList.formGuessCup.classList.remove("hidden");
@@ -90,46 +114,58 @@ var engine = (function() {
             totalPlayerSum -= currentGameSum;
         }
 
+        elementsList.playerScoreUI.textContent = totalPlayerSum;
+        elementsList.computerScoreUI.textContent = totalOpponentSum;
+
         elementsList.formGuessCup.classList.add("hidden");
         elementsList.formGameContinue.classList.remove("hidden");
 
         console.log("guessedCup: " + guessedCup);
         gameRenderer.printCupsInConsole("result", ballPosition, numberOfCups);
-        gameRenderer.showBallUnderCup(ballPosition);
+
+        elementsList.showGuessInfo.classList.remove("hidden");
+        if (guessedCup === ballPosition) {
+            elementsList.showGuessInfo.textContent = "CORRECT GUESS!";
+            elementsList.showGuessInfo.classList.add("correct");
+            gameRenderer.showBallUnderCup(ballPosition);
+        } else {
+            elementsList.showGuessInfo.textContent = "WRONG GUESS!";
+            elementsList.showGuessInfo.classList.add("wrong");
+            gameRenderer.moveEmptyCup(guessedCup);
+        }
     }
 
     function continueGame(e) {
         e.preventDefault();
 
+        var winner,
+            winnerScore,
+            opponentScore;
+
         playAgain = elementsList.inputGameContinue.value;
         elementsList.formGameContinue.classList.add("hidden");
+        elementsList.showGuessInfo.classList.add("hidden");
+        elementsList.bet.classList.add("hidden");
+        elementsList.gameUiRender.classList.add("hidden");
 
         if (playAgain === "Yes") {
-            elementsList.gameUiRender.classList.add("hidden");
             elementsList.formUserInput.reset();
+            elementsList.currentBetUI.textContent = 0;
 
             elementsList.formCurrentSum.classList.remove("hidden");
         } else if (playAgain === "No") {
             elementsList.gameOverContainer.classList.remove("hidden");
-            elementsList.gameHeading.classList.add("hidden");
             elementsList.formUserInput.classList.add("hidden");
-            elementsList.mainContainer.style.background = "#4192AF";
-            elementsList.mainContainer.style.opacity = ".8";
-            elementsList.gameUiRender.classList.add("hidden");
 
             if (totalPlayerSum > totalOpponentSum) {
-                elementsList.winnerName.textContent = "Winner: " + playerName.toUpperCase();
-                elementsList.winnerScore.textContent = playerName.toUpperCase() + " score: " + totalPlayerSum;
-                elementsList.opponentScore.textContent = "Opponent score: " + totalOpponentSum;
+                winner = "Winner: " + playerName.toUpperCase();
             } else if (totalPlayerSum < totalOpponentSum) {
-                elementsList.winnerName.textContent = "Winner: " + "Opponent".toUpperCase();
-                elementsList.winnerScore.textContent = "Opponent score: " + totalOpponentSum;
-                elementsList.opponentScore.textContent = playerName + " score: " + totalPlayerSum;
+                winner = "Winner: " + "Computer";
             } else {
-                elementsList.winnerName.textContent = "Game ends equal!".toUpperCase();
-                elementsList.winnerScore.textContent = "Opponent score: " + totalOpponentSum;
-                elementsList.opponentScore.textContent = playerName + " score: " + totalPlayerSum;
+                winner = "Game ends equal!";
             }
+
+            elementsList.winnerName.textContent = winner;
         }
     }
 
@@ -138,12 +174,12 @@ var engine = (function() {
 
         this.classList.remove("animate-cups");
         if (currentCup) {
-            currentCup.classList.add("hidden");
             currentCup.classList.remove("current");
+            currentCup.classList.add("hidden");
         }
     }
 
-    function shuffleCupsArownd() {
+    function shuffleCupsAround() {
         var cups = document.getElementsByClassName("cups");
 
         for (var i = 0; i < cups.length; i++) {
@@ -158,6 +194,6 @@ var engine = (function() {
         guessCup: guessCup,
         continueGame: continueGame,
         moveCupUpAndDown: moveCupUpAndDown,
-        shuffleCupsArownd: shuffleCupsArownd
+        shuffleCupsAround: shuffleCupsAround
     }
 }());

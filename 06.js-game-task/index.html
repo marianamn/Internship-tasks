@@ -12,7 +12,34 @@
 
 <body>
     <div id="container">
-        <h1 class="game-heading">Cups game</h1>
+        <div class="game-container">
+            <h1 class="game-heading">Cups game</h1>
+
+            <div class="score-container">
+                <div class="lets-play">
+                    Let's play!
+                </div>
+
+                <div class="bet hidden">
+                    <p>Current bet: <span class="current-bet"></span></p>
+                </div>
+
+                <div class="score-panel hidden">
+                    <div class="flex-container">
+                        <div class="score">
+                            <p><span class="player-name"></span></p>
+                            <p>Score: <span class="player-score"></span></p>
+                        </div>
+
+                        <div class="score">
+                            <p>Computer </p>
+                            <p>Score: <span class="computer-score"></span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <form class="user-input">
             <!--initial player input-->
             <div class="step-initial-data">
@@ -72,6 +99,10 @@
                 </div>
             </div>
 
+            <div class="show-the-guess-info hidden">
+
+            </div>
+
             <!--continue game-->
             <div class="step-game-continue hidden">
                 <div class="form-group">
@@ -91,15 +122,15 @@
         <!--cups UI-->
         <div class="game-ui hidden">
             <div class="cups-wrapper">
-                <div class="cups">
+                <div class="cups" id="1">
                     <img class="img-cup" src="http://www.petalprinting.com/media/catalog/product/cache/1/image/650x650/9df78eab33525d08d6e5fb8d27136e95/m/e/medium_cup_green_4.png"
                         alt="cup-image">
                 </div>
-                <div class="cups">
+                <div class="cups" id="2">
                     <img class="img-cup" src="http://www.petalprinting.com/media/catalog/product/cache/1/image/650x650/9df78eab33525d08d6e5fb8d27136e95/m/e/medium_cup_green_4.png"
                         alt="cup-image">
                 </div>
-                <div class="cups">
+                <div class="cups" id="3">
                     <img class="img-cup" src="http://www.petalprinting.com/media/catalog/product/cache/1/image/650x650/9df78eab33525d08d6e5fb8d27136e95/m/e/medium_cup_green_4.png"
                         alt="cup-image">
                 </div>
@@ -129,7 +160,7 @@
     <script src="./scripts/utils.js"></script>
     <script src="./scripts/game-renderer.js"></script>
     <script src="./scripts/game-engine.js"></script>
-    <script src="./scripts/game-start.js"></script>
+    <script src="./scripts/main.js"></script>
 </body>
 
 </html>

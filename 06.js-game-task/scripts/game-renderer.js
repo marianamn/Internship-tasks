@@ -1,4 +1,5 @@
-var gameRenderer = (function() {
+
+var gameRenderer = (function () {
     function printCupsInConsole(command, ballPosition, numberOfCups) {
         var rows = 5,
             cols = 11, // always min (rows*2 - 1) and to be odd
@@ -146,6 +147,10 @@ var gameRenderer = (function() {
         document.getElementsByClassName("cups")[cup - 1].classList.add("animate-cups");
     }
 
+    function moveEmptyCup(cup) {
+        document.getElementsByClassName("cups")[cup - 1].classList.add("animate-cups");
+    }
+
     function getCurrenBall(cup) {
         var balls = document.querySelectorAll("[data-id]");
 
@@ -156,44 +161,33 @@ var gameRenderer = (function() {
         }
     }
 
-    function shuffleCups() {
-        repeatTimes = 10;
+    function shuffleCups(choosenCup) {
+        var repeatTimes = 10;
+        getCurrentPosition(choosenCup);
 
         for (var i = 1; i < repeatTimes; i++) {
-            setTimeout(moveCups, 1000 * i);
+            setTimeout(moveCups, 700 * i);
         }
     }
 
-    function moveCups() {
+    function moveCups() {       
         var cups = document.getElementsByClassName("cups"),
-            randomFirstMovedCup = utils.getRandomInt(1, 3),
-            randomSecondMovedCup = utils.getRandomInt(1, 2);
+            randomCup = utils.getRandomInt(1, 3);
 
-        if (randomFirstMovedCup === 3) {
-            if (randomSecondMovedCup === 1) {
-                cups[randomFirstMovedCup - 1].classList.add("left");
-                cups[randomSecondMovedCup - 1].classList.add("right");
-            } else {
-                cups[randomFirstMovedCup - 1].classList.add("middle-left");
-                cups[randomSecondMovedCup - 1].classList.add("middle-right");
-            }
-        } else if (randomFirstMovedCup === 2) {
-            if (randomSecondMovedCup === 1) {
-                cups[randomFirstMovedCup - 1].classList.add("middle-left");
-                cups[randomSecondMovedCup - 1].classList.add("middle-right");
-            } else {
-                cups[randomFirstMovedCup - 1].classList.add("middle-right");
-                cups[randomSecondMovedCup].classList.add("middle-left");
-            }
+        if (randomCup === 3) {
+            cups[randomCup - 2].classList.add("middle-left");
+            cups[randomCup - 3].classList.add("middle-right");
+        } else if (randomCup === 2) {
+            cups[randomCup - 2].classList.add("right");
+            cups[randomCup].classList.add("left");
         } else {
-            if (randomSecondMovedCup === 1) {
-                cups[randomFirstMovedCup - 1].classList.add("middle-right");
-                cups[randomSecondMovedCup].classList.add("middle-left");
-            } else {
-                cups[randomFirstMovedCup - 1].classList.add("right");
-                cups[randomSecondMovedCup].classList.add("left");
-            }
+            cups[randomCup].classList.add("middle-right");
+            cups[randomCup + 1].classList.add("middle-left");
         }
+    }
+
+    function getCurrentPosition(choosenCup){
+        return choosenCup;
     }
 
     return {
@@ -203,6 +197,7 @@ var gameRenderer = (function() {
         // UI
         renderCupsInUI: renderCupsInUI,
         showBallUnderCup: showBallUnderCup,
+        moveEmptyCup: moveEmptyCup,
         shuffleCups: shuffleCups
     }
 }());

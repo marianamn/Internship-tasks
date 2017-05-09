@@ -32,6 +32,39 @@ body {
         text-transform: uppercase;
         color: #255984;
     }
+    .game-container {
+        width: 200px;
+        text-align: center;
+        width: 700px;
+        height: 250px;
+        background: #fff;
+        margin: 10px auto;
+        color: #255984;
+        box-shadow: 0 0 20px 1px #255984;
+        .score-container {
+            .bet {
+                color: #4192AF;
+            }
+            .score-panel {
+                line-height: 1.5rem;
+            }
+            .flex-container {
+                display: flex;
+            }
+            .lets-play {
+                color: #4192AF;
+                font-size: 1.8rem;
+                text-transform: uppercase;
+                margin-top: 25px;
+            }
+            .score {
+            flex: 1 0 auto;
+            margin: 10px;
+            text-align: center;
+            padding: 10px;
+            }
+        }
+    }
     .user-input {
         text-align: center;
         padding: 10px;
@@ -118,6 +151,7 @@ body {
             left: 100px;
             width: 45px;
             height: 45px;
+            z-index: 1;
         }
     }
     .tabel {
@@ -127,6 +161,18 @@ body {
         margin-right: auto;
         margin-top: -10px;
     }
+}
+
+.wrong {
+    margin-bottom: 20px;
+    font-size: 2rem;
+    color: darkred;
+}
+
+.correct {
+    margin-bottom: 20px;
+    font-size: 2rem;
+    color: green;
 }
 
 .animate-cups {
