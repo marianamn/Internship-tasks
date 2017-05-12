@@ -1,0 +1,157 @@
+$background-white: #fff;
+$background-sub-menu: #f2f2f2;
+$background-menu-hover: #cacaca;
+$background-selected-item: #87babc;
+$background-key-hover: #dddbdb;
+$background-key-active: #a39f9f;
+$background-key-numbers-container: #f2f2f2;
+$calculator-border-color: #1b8c90;
+$calculator-box-shadow-color: #d4d4d4;
+$gray-border-color: gray;
+$font-color: black;
+$base-px: 5px;
+
+// reset styles
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100%;
+    background: $background-white;
+    background: radial-gradient(circle, $background-white 20%, #ccc);
+    background-size: cover;
+}
+
+button {
+    border: 0;
+    outline: 0;
+    background: none;
+}
+
+.hidden {
+    display: none;
+}
+
+.icon {
+    font-size: 21px;
+}
+
+#calculator {
+    position: relative;
+    width: $base-px * 66;
+    height: auto;
+    margin: $base-px * 20 auto;
+    background: $background-white;
+    border: 1px solid $calculator-border-color;
+    box-shadow: 0 0 22px 4px $calculator-box-shadow-color;
+    .top-container {
+        margin: $base-px * 4  $base-px * 4 0  $base-px * 4;
+    }
+    .heding {
+        margin-bottom: $base-px * 2;
+    }
+    .menu {
+        display: flex;
+        align-items: center;
+        position: relative;
+        img,
+        a,
+        button {
+            width: $base-px * 7;
+            height: $base-px * 7;
+        }
+        a {
+            margin-right: $base-px;
+        }
+        .calculator-option {
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+        ul {
+            list-style: none;
+        }
+        li {
+            padding: $base-px;
+            a {
+                text-decoration: none;
+                color: $font-color;
+                padding-left: $base-px * 8;
+            }
+            &:hover {
+                background: $background-menu-hover;
+            }
+        }
+        .selected {
+            background: $background-selected-item;
+        }
+    }
+    .sub-menu {
+        position: absolute;
+        top: 0;
+        left: 0;
+        line-height: 1.5rem;
+        background: $background-sub-menu;
+        width: 90%;
+        height: $base-px * 26;
+        .toggle-menu {
+            display: flex;
+            align-items: center;
+        }
+    }
+    .top {
+        height: $base-px * 26;
+        align-items: center;
+    }
+    .screen {
+        width: 100%;
+        margin-top: $base-px * 5;
+        margin-bottom: $base-px * 2;
+        font-size: $base-px * 5;
+        color: $gray-border-color;
+        text-align: right;
+        letter-spacing: 1px;
+        word-wrap: break-word;
+    }
+    .result {
+        text-align: right;
+        font-size: $base-px * 8;
+        color: $font-color;
+        overflow: hidden;
+    }
+    .keys {
+        .advanced-row {
+            border-bottom: 1px solid $gray-border-color;
+            padding-bottom: $base-px;
+            font-size: 0.9rem;
+            button {
+                color: $gray-border-color;
+                font-weight: normal;
+            }
+        }
+        .calculator-row {
+            display: flex;
+            margin-bottom: $base-px * 3;
+            button {
+                flex: 1 0 auto;
+                text-align: center;
+                padding: $base-px;
+                font-weight: bold;
+                font-size: $base-px * 3;
+                &:hover {
+                    background: $background-key-hover;
+                }
+                &:active{
+                    background: $background-key-active;
+                }
+            }
+        }
+        .container {
+            background: $background-key-numbers-container;
+            padding-top: $base-px * 3;
+            height: 100%;
+        }
+    }
+}

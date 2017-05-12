@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Calculator</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <!--<link rel="stylesheet" href="//appsforoffice.microsoft.com/fabric/1.0/fabric.min.css" />-->
+    <link rel="stylesheet" href="./styles/styles.css/styles.css">
+</head>
+
+<body>
+    <div id="calculator">
+        <div class="top-container">
+            <div class="heding">Calculator</div>
+
+            <div class="menu">
+                <a href="#menu" id="toggle">
+                    <button class="toggle">
+                        <i class="fa fa-bars icon" aria-hidden="true"></i>
+                        <!--<i class="ms-Icon ms-Icon--GlobalNavButton" aria-hidden="true"></i>-->
+                    </button>
+                </a>
+                <div class="calculator-option">Standard</div>
+
+                <div class="sub-menu hidden">
+                    <div class="toggle-menu">
+                        <a href="#menu" class="close-toggle">
+                            <button class="toggle">
+                            <i class="fa fa-bars icon" aria-hidden="true"></i>
+                            <!--<i class="ms-Icon ms-Icon--GlobalNavButton" aria-hidden="true"></i>-->
+                        </button>
+                        </a>
+                        <div>Calculator</div>
+                    </div>
+
+                    <ul class="options-list">
+                        <li class="selected"><a href="#">Standard</a></li>
+                        <li><a href="#">Advanced</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Screen -->
+            <div class="top">
+                <div class="screen"></div>
+                <div class="result">0</div>
+            </div>
+        </div>
+
+        <div class="keys">
+            <!-- operators and other keys -->
+            <div class="calculator-row advanced-row">
+                <button class="advanced memory hidden">MC</button>
+                <button class="advanced memory hidden">MR</button>
+                <button class="advanced memory hidden">M+</button>
+                <button class="advanced memory hidden">M-</button>
+                <button class="advanced memory hidden">MS</button>
+            </div>
+
+            <div class="calculator-row">
+                <button class="advanced hidden">C</button>
+                <button class="advanced hidden">CE</button>
+                <button class="advanced hidden"></button>
+                <button class="advanced hidden"></button>
+            </div>
+
+            <div class="calculator-row">
+                <button class="operator">±</button>
+                <button class="operator">%</button>
+                <button class="operator">√</button>
+                <button class="operator">DEL</button>
+            </div>
+
+            <div class="container">
+                <div class="calculator-row">
+                    <button>7</button>
+                    <button>8</button>
+                    <button>9</button>
+                    <button class="operator">+</button>
+                </div>
+
+                <div class="calculator-row">
+                    <button>4</button>
+                    <button>5</button>
+                    <button>6</button>
+                    <button class="operator">-</button>
+                </div>
+
+                <div class="calculator-row">
+                    <button>1</button>
+                    <button>2</button>
+                    <button>3</button>
+                    <button class="operator">÷</button>
+                </div>
+
+                <div class="calculator-row">
+                    <button>.</button>
+                    <button>0</button>
+                    <button class="eval">=</button>
+                    <button class="operator">x</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="./scripts/utils.js"></script>
+    <script src="./scripts/menu.js"></script>
+    <script src="./scripts/memory-buttons.js"></script>
+    <script src="./scripts/calculations.js"></script>
+    <script src="./scripts/main.js"></script>
+</body>
+
+</html>
