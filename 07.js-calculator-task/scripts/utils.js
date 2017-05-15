@@ -1,3 +1,5 @@
+/* exported utils */
+
 var utils = function() {
     function sum(a, b) {
         return a + b;

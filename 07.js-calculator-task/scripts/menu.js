@@ -1,3 +1,5 @@
+/* exported menu */
+
 var menu = (function() {
     var subMenu,
         elementsList;
@@ -61,4 +63,4 @@ var menu = (function() {
         openSubMenu: openSubMenu,
         closeSubMenu: closeSubMenu
     }
-}(menu));
+}());

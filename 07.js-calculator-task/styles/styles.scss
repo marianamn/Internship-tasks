@@ -74,7 +74,6 @@ button {
             list-style: none;
         }
         li {
-            padding: $base-px;
             a {
                 text-decoration: none;
                 color: $font-color;
@@ -135,7 +134,7 @@ button {
             display: flex;
             margin-bottom: $base-px * 3;
             button {
-                flex: 1 0 auto;
+                flex: 1;
                 text-align: center;
                 padding: $base-px;
                 font-weight: bold;
@@ -145,6 +144,30 @@ button {
                 }
                 &:active{
                     background: $background-key-active;
+                }
+            }
+             .disabled {
+                    color: $background-key-hover;
+                    background: $background-white;
+                }
+                .disabled:hover {
+                    background: $background-white;
+                }
+                .disabled:active {
+                    background: $background-white;
+                }
+        }
+        .advanced {
+            .mc, .mr {
+                .disabled {
+                    color: $background-key-hover;
+                    background: $background-white;
+                }
+                .disabled:hover {
+                    background: $background-white;
+                }
+                .disabled:active {
+                    background: $background-white;
                 }
             }
         }

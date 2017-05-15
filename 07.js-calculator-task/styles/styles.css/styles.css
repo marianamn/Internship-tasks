@@ -48,14 +48,12 @@ button {
       font-weight: bold; }
     #calculator .menu ul {
       list-style: none; }
-    #calculator .menu li {
-      padding: 5px; }
-      #calculator .menu li a {
-        text-decoration: none;
-        color: black;
-        padding-left: 40px; }
-      #calculator .menu li:hover {
-        background: #cacaca; }
+    #calculator .menu li a {
+      text-decoration: none;
+      color: black;
+      padding-left: 40px; }
+    #calculator .menu li:hover {
+      background: #cacaca; }
     #calculator .menu .selected {
       background: #87babc; }
   #calculator .sub-menu {
@@ -97,7 +95,7 @@ button {
     display: flex;
     margin-bottom: 15px; }
     #calculator .keys .calculator-row button {
-      flex: 1 0 auto;
+      flex: 1;
       text-align: center;
       padding: 5px;
       font-weight: bold;
@@ -106,6 +104,20 @@ button {
         background: #dddbdb; }
       #calculator .keys .calculator-row button:active {
         background: #a39f9f; }
+    #calculator .keys .calculator-row .disabled {
+      color: #dddbdb;
+      background: #fff; }
+    #calculator .keys .calculator-row .disabled:hover {
+      background: #fff; }
+    #calculator .keys .calculator-row .disabled:active {
+      background: #fff; }
+  #calculator .keys .advanced .mc .disabled, #calculator .keys .advanced .mr .disabled {
+    color: #dddbdb;
+    background: #fff; }
+  #calculator .keys .advanced .mc .disabled:hover, #calculator .keys .advanced .mr .disabled:hover {
+    background: #fff; }
+  #calculator .keys .advanced .mc .disabled:active, #calculator .keys .advanced .mr .disabled:active {
+    background: #fff; }
   #calculator .keys .container {
     background: #f2f2f2;
     padding-top: 15px;

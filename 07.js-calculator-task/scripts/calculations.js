@@ -1,7 +1,8 @@
-/*global  utils memoryButtons*/
-/*eslint no-console: "off"*/
+/* global  utils memoryButtons validator*/
+/* eslint no-console: "off"*/
+/* exported calculations */
 
-var calculations = (function() {
+var calculations = (function () {
     var elementsList,
         inputPanel,
         inputResultString = "",
@@ -63,8 +64,8 @@ var calculations = (function() {
         if (memoryBtnsArray.indexOf(btnValue) > -1) {
             if (result) {
                 memoryCurrentValue = result;
-            } else if (inputResultString.length === 1) {
-                memoryCurrentValue = inputResultString;
+            } else if (inputResultString.trim().length === 1) {
+                memoryCurrentValue = parseFloat(inputResultString);
             } else if (inputResultString && lastOperator) {
                 var lastOperatorIndex = inputResultString.lastIndexOf(lastOperator.toString())
 
@@ -78,22 +79,20 @@ var calculations = (function() {
             console.log("memory: " + memory);
         }
 
-        if (btnValue !== "=" && btnValue !== "DEL" && btnValue !== "√" && btnValue !== "±" && btnValue !== "%" && btnValue !== "C" && btnValue !== "CE" && memoryBtnsArray.indexOf(btnValue) === -1) {
-            if (operators.indexOf(btnValue) > -1) {
+        if (validator.checkIfPressedButtonIsNotInArray(btnValue, ["=", "DEL", "√", "±", "%", "C", "CE"]) && validator.checkIfPressedButtonIsNotInArray(btnValue, memoryBtnsArray)) {
+            if (validator.checkIfPressedButtonIsInArray(btnValue, operators)) {
                 lastOperator = btnValue;
 
                 previousBtnClicked = inputValue[inputValue.length - 1];
 
                 // only add operator if input is not empty and there is no operator at the end of expression
                 // allow minus if the string is empty
-                if (inputValue !== "" && operators.indexOf(previousBtnClicked) === -1) {
-                    inputResultString += btnValue;
-                } else if (inputValue === "" && btnValue === "-") {
+                if (inputValue !== "" && (validator.checkIfPressedButtonIsNotInArray(previousBtnClicked, operators) || btnValue === "-")) {
                     inputResultString += btnValue;
                 }
 
                 // replace the last operator (if exists) with the newly pressed operator
-                if (operators.indexOf(previousBtnClicked) > -1 && inputValue.length > 1 && btnValue !== "√") {
+                if (validator.checkIfPressedButtonIsInArray(previousBtnClicked, operators) && inputValue.length > 1 && btnValue !== "√") {
                     inputResultString = inputValue.replace(/.$/, btnValue);
                 }
 
@@ -105,6 +104,12 @@ var calculations = (function() {
                     decimalAdded = true;
                 }
             } else {
+                previousBtnClicked = inputValue[inputValue.length - 1];
+
+                if (previousBtnClicked === "0") {
+                    inputResultString = inputResultString.substring(0, inputResultString.length - 1);
+                }
+
                 inputResultString += btnValue;
                 lastNumber = inputResultString.substring(lastOperatorIndex + 1, inputResultString.length);
             }
@@ -133,8 +138,8 @@ var calculations = (function() {
                 elementsList.result.textContent = 0;
             }
         } else if (btnValue === "±") {
-            var lastOperatorIndexSign,
-                oppositeNumber;
+             var lastOperatorIndexSign,
+                 oppositeNumber;
 
             if (inputResultString.length !== 0 && lastOperator) {
                 lastOperatorIndexSign = inputResultString.lastIndexOf(lastOperator.toString());
@@ -150,11 +155,11 @@ var calculations = (function() {
                 }
 
                 console.log(lastNumber);
-
             } else {
                 lastNumber = parseFloat(inputResultString);
                 inputResultString = inputResultString.replace(lastNumber, lastNumber * (-1));
             }
+
         } else if (btnValue === "%") {
             var number,
                 lastOperatorIndexPercent,
@@ -178,13 +183,13 @@ var calculations = (function() {
                 inputResultString = "";
                 inputResultString += number / 100;
             }
-        } else if (memoryBtnsArray.indexOf(btnValue) === -1) {
+        } else if (validator.checkIfPressedButtonIsNotInArray(btnValue, memoryBtnsArray)) {
             var lastChar = inputResultString[inputResultString.length - 1],
                 square = utils.squareRoot(parseFloat(lastNumber)),
                 inputResultStringNew;
 
             // if last char is operator or decimal remove it
-            if ((operators.indexOf(lastChar) > -1 || lastChar === ".") && lastChar !== "%") {
+            if ((validator.checkIfPressedButtonIsInArray(lastChar, operators) || lastChar === ".") && lastChar !== "%") {
                 inputResultString = inputResultString.replace(/.$/, "");
             }
 
@@ -202,4 +207,4 @@ var calculations = (function() {
     return {
         calculate: caclulate
     }
-}(calculations));
+}());
