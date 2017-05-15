@@ -1,6 +1,9 @@
+/*global  menu calculations*/
+
 var btnOpenToggle,
     btnCloseToggle,
-    keys = [];
+    keys = [],
+    elementsList;
 
 function initializeElements() {
     return {
@@ -23,4 +26,4 @@ keys = elementsList.keys;
 
 for (var i = 0; i < keys.length; i++) {
     keys[i].addEventListener("click", calculations.calculate);
-};
+}

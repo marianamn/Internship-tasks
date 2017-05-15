@@ -1,4 +1,7 @@
-var calculations = (function () {
+/*global  utils memoryButtons*/
+/*eslint no-console: "off"*/
+
+var calculations = (function() {
     var elementsList,
         inputPanel,
         inputResultString = "",
@@ -11,7 +14,8 @@ var calculations = (function () {
         initialClicked = false,
         memoryBtns,
         memoryBtnsArray = [],
-        memoryCurrentValue;
+        memoryCurrentValue,
+        memory = 0;
 
     function initializeElements() {
         return {
@@ -27,7 +31,7 @@ var calculations = (function () {
 
     for (var i = 0; i < memoryBtns.length; i++) {
         memoryBtnsArray[i] = memoryBtns[i].textContent;
-    };
+    }
 
     function caclulate(e) {
         e.preventDefault();
@@ -57,7 +61,6 @@ var calculations = (function () {
         }
 
         if (memoryBtnsArray.indexOf(btnValue) > -1) {
-            console.log(inputResultString);
             if (result) {
                 memoryCurrentValue = result;
             } else if (inputResultString.length === 1) {
@@ -65,14 +68,14 @@ var calculations = (function () {
             } else if (inputResultString && lastOperator) {
                 var lastOperatorIndex = inputResultString.lastIndexOf(lastOperator.toString())
 
-                memoryCurrentValue = inputResultString.substring(lastOperatorIndex + 1, inputResultString.length);
+                memoryCurrentValue = parseFloat(inputResultString.substring(lastOperatorIndex + 1, inputResultString.length));
             } else {
                 memoryCurrentValue = 0;
             }
 
-            console.log("v" + memoryCurrentValue);
-            var memoryString = memoryButtons.calculate(btnValue, memoryCurrentValue);
-            console.log("m" + memoryString);
+            memory = memoryButtons.calculate(memory, btnValue, memoryCurrentValue);
+            console.log("value: " + memoryCurrentValue);
+            console.log("memory: " + memory);
         }
 
         if (btnValue !== "=" && btnValue !== "DEL" && btnValue !== "√" && btnValue !== "±" && btnValue !== "%" && btnValue !== "C" && btnValue !== "CE" && memoryBtnsArray.indexOf(btnValue) === -1) {
@@ -112,13 +115,13 @@ var calculations = (function () {
                 elementsList.result.textContent = 0;
             }
         } else if (btnValue === "√") {
-            var lastOperatorIndex,
+            var lastOperatorIndexSqrt,
                 sqrt;
 
             if (inputResultString.length !== 0 && lastOperator) {
-                lastOperatorIndex = inputResultString.lastIndexOf(lastOperator.toString())
+                lastOperatorIndexSqrt = inputResultString.lastIndexOf(lastOperator.toString())
 
-                lastNumber = inputResultString.substring(lastOperatorIndex + 1, inputResultString.length);
+                lastNumber = inputResultString.substring(lastOperatorIndexSqrt + 1, inputResultString.length);
                 sqrt = utils.squareRoot(parseFloat(lastNumber));
 
                 inputResultString = inputResultString.replace(new RegExp(lastNumber + '$'), sqrt);
@@ -128,19 +131,19 @@ var calculations = (function () {
                 inputResultString = inputResultString.replace(new RegExp(lastNumber + '$'), sqrt);
             } else {
                 elementsList.result.textContent = 0;
-            };
+            }
         } else if (btnValue === "±") {
-            var lastOperatorIndex,
+            var lastOperatorIndexSign,
                 oppositeNumber;
 
             if (inputResultString.length !== 0 && lastOperator) {
-                lastOperatorIndex = inputResultString.lastIndexOf(lastOperator.toString());
-                lastNumber = inputResultString.substring(lastOperatorIndex + 1, inputResultString.length);
+                lastOperatorIndexSign = inputResultString.lastIndexOf(lastOperator.toString());
+                lastNumber = inputResultString.substring(lastOperatorIndexSign + 1, inputResultString.length);
                 oppositeNumber = lastNumber * (-1);
 
                 // if there is expression before, not only the opposite sign number should be put but the previous operator must be removed
                 if (lastOperator !== "x" && lastOperator !== "÷") {
-                    inputResultString = inputResultString.replace(inputResultString[lastOperatorIndex], "");
+                    inputResultString = inputResultString.replace(inputResultString[lastOperatorIndexSign], "");
                     inputResultString = inputResultString.replace(new RegExp(lastNumber + '$'), oppositeNumber.toString());
                 } else {
                     inputResultString = inputResultString.replace(new RegExp(lastNumber + '$'), oppositeNumber.toString());
@@ -153,16 +156,21 @@ var calculations = (function () {
                 inputResultString = inputResultString.replace(lastNumber, lastNumber * (-1));
             }
         } else if (btnValue === "%") {
-            var number;
+            var number,
+                lastOperatorIndexPercent,
+                stringExpression,
+                parsed,
+                calculate,
+                percent;
 
             if (lastOperator) {
-                var lastOperatorIndex = inputResultString.indexOf(lastOperator.toString());
-                number = inputResultString.substring(lastOperatorIndex + 1, inputResultString.length);
-                var stringExpression = inputResultString.substring(0, lastOperatorIndex);
+                lastOperatorIndexPercent = inputResultString.indexOf(lastOperator.toString());
+                number = inputResultString.substring(lastOperatorIndexPercent + 1, inputResultString.length);
+                stringExpression = inputResultString.substring(0, lastOperatorIndexPercent);
 
-                var parse = utils.parseCalculationString(stringExpression);
-                var calculate = utils.calculateExpression(parse);
-                var percent = utils.percent(calculate, number);
+                parsed = utils.parseCalculationString(stringExpression);
+                calculate = utils.calculateExpression(parsed);
+                percent = utils.percent(calculate, number);
 
                 inputResultString = inputResultString.replace(new RegExp(number + '$'), percent);
             } else {
@@ -170,17 +178,17 @@ var calculations = (function () {
                 inputResultString = "";
                 inputResultString += number / 100;
             }
-        } else {
+        } else if (memoryBtnsArray.indexOf(btnValue) === -1) {
             var lastChar = inputResultString[inputResultString.length - 1],
-                sqrt = utils.squareRoot(parseFloat(lastNumber)),
+                square = utils.squareRoot(parseFloat(lastNumber)),
                 inputResultStringNew;
 
             // if last char is operator or decimal remove it
             if ((operators.indexOf(lastChar) > -1 || lastChar === ".") && lastChar !== "%") {
                 inputResultString = inputResultString.replace(/.$/, "");
-            };
+            }
 
-            inputResultStringNew = inputResultString.replace("√(" + lastNumber + ")", sqrt);
+            inputResultStringNew = inputResultString.replace("√(" + lastNumber + ")", square);
 
             expression = utils.parseCalculationString(inputResultStringNew);
             result = utils.calculateExpression(expression);
@@ -194,4 +202,4 @@ var calculations = (function () {
     return {
         calculate: caclulate
     }
-}());
+}(calculations));

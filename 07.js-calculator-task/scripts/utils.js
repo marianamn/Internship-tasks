@@ -1,4 +1,4 @@
-var utils = function () {
+var utils = function() {
     function sum(a, b) {
         return a + b;
     }
@@ -23,7 +23,7 @@ var utils = function () {
         return a * b / 100;
     }
 
-     // parse a calculation string into an array of numbers and operators
+    // parse a calculation string into an array of numbers and operators
     function parseCalculationString(expression) {
         expression = expression.replace(/x/g, "*").replace(/÷/g, "/");
         //console.log(expression);
@@ -45,11 +45,11 @@ var utils = function () {
             } else {
                 current += expression[i];
             }
-        };
+        }
 
         if (current !== "") {
             calculation.push(parseFloat(current));
-        };
+        }
 
         return calculation;
     }
@@ -60,14 +60,13 @@ var utils = function () {
         var newCalculation = [],
             currentOperation;
 
-        var operations = [
-            {
-                "*": utils.multiply,
-                "/": utils.divide
+        var operations = [{
+                "*": multiply,
+                "/": divide
             },
             {
-                "+": utils.sum,
-                "-": utils.substract
+                "+": sum,
+                "-": substract
             }
         ];
 

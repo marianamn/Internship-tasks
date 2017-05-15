@@ -1,4 +1,4 @@
-var menu = (function () {
+var menu = (function() {
     var subMenu,
         elementsList;
 
@@ -46,10 +46,12 @@ var menu = (function () {
         }
 
         subMenu.classList.add("hidden");
-    };
+    }
 
     function closeSubMenu(e) {
         e.preventDefault();
+
+        var selectedElement = elementsList.selectedElement;
         selectedElement.classList.remove("selected");
 
         subMenu.classList.add("hidden");
@@ -59,4 +61,4 @@ var menu = (function () {
         openSubMenu: openSubMenu,
         closeSubMenu: closeSubMenu
     }
-}());
+}(menu));
