@@ -2,7 +2,7 @@
 /* eslint no-console: "off"*/
 /* exported calculations */
 
-var calculations = (function () {
+var calculations = (function() {
     var elementsList,
         inputPanel,
         inputResultString = "",
@@ -12,7 +12,6 @@ var calculations = (function () {
         result,
         lastOperator,
         lastNumber,
-        initialClicked = false,
         memoryBtns,
         memoryBtnsArray = [],
         memoryCurrentValue,
@@ -51,14 +50,12 @@ var calculations = (function () {
         }
 
         if (btnValue === "CE") {
-            if (initialClicked === false) {
-                inputResultString = inputResultString.substring(0, [inputPanel.textContent.length - 1]);
-                initialClicked = true;
-            } else {
-                inputResultString = "";
+            inputResultString = inputResultString.trim()
+            var lastOperatorPosition = inputResultString.lastIndexOf(lastOperator.toString())
+            var lastInputNumber = inputResultString.substring(lastOperatorPosition + 1, inputResultString.length);
 
-                elementsList.result.textContent = 0;
-            }
+            inputResultString = inputResultString.substring(0, inputResultString.length - lastInputNumber.length);
+            inputPanel.textContent = inputResultString;
         }
 
         if (memoryBtnsArray.indexOf(btnValue) > -1) {
@@ -138,23 +135,29 @@ var calculations = (function () {
                 elementsList.result.textContent = 0;
             }
         } else if (btnValue === "±") {
-             var lastOperatorIndexSign,
-                 oppositeNumber;
+            var lastOperatorIndexSign;
 
             if (inputResultString.length !== 0 && lastOperator) {
                 lastOperatorIndexSign = inputResultString.lastIndexOf(lastOperator.toString());
                 lastNumber = inputResultString.substring(lastOperatorIndexSign + 1, inputResultString.length);
-                oppositeNumber = lastNumber * (-1);
+                console.log(lastNumber);
 
                 // if there is expression before, not only the opposite sign number should be put but the previous operator must be removed
                 if (lastOperator !== "x" && lastOperator !== "÷") {
-                    inputResultString = inputResultString.replace(inputResultString[lastOperatorIndexSign], "");
-                    inputResultString = inputResultString.replace(new RegExp(lastNumber + '$'), oppositeNumber.toString());
+                    inputResultString = inputResultString.substring(0, inputResultString.length - lastNumber.length - 1);
+                    console.log(inputResultString);
+
+                    if (lastOperator === "-") {
+                        inputResultString += "+" + lastNumber;
+                        lastOperator = "-";
+                    } else {
+                        inputResultString += "-" + lastNumber;
+                        lastOperator = "+";
+                    }
                 } else {
-                    inputResultString = inputResultString.replace(new RegExp(lastNumber + '$'), oppositeNumber.toString());
+                    inputResultString = inputResultString.replace(new RegExp(lastNumber + '$'), lastNumber * (-1));
                 }
 
-                console.log(lastNumber);
             } else {
                 lastNumber = parseFloat(inputResultString);
                 inputResultString = inputResultString.replace(lastNumber, lastNumber * (-1));
@@ -183,7 +186,7 @@ var calculations = (function () {
                 inputResultString = "";
                 inputResultString += number / 100;
             }
-        } else if (validator.checkIfPressedButtonIsNotInArray(btnValue, memoryBtnsArray)) {
+        } else if (validator.checkIfPressedButtonIsNotInArray(btnValue, memoryBtnsArray) && validator.checkIfPressedButtonIsNotInArray(btnValue, ["C", "CE"])) {
             var lastChar = inputResultString[inputResultString.length - 1],
                 square = utils.squareRoot(parseFloat(lastNumber)),
                 inputResultStringNew;
