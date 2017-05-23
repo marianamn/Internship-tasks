@@ -1,0 +1,30 @@
+body{
+    padding: 0;
+    margin: 0;
+}
+
+h1{
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#wrapper {
+    width: 50%;
+    margin: 0 auto;
+    border: 1px solid gray;
+    .container {
+        border: 1px solid gray;
+        padding: 10px 20px;
+        .title {
+            float: left;
+        }
+        .comments-count {
+            float: right;
+        }
+        .detailes{
+            clear: both;
+        }
+    }
+}
