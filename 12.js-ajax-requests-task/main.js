@@ -18,11 +18,24 @@ function initialData(e) {
 function getRequestsData(e) {
     e.preventDefault();
 
-    console.log(document.body.offsetHeight - window.innerHeight)
-    console.log(document.body.scrollTop);
-    if ((document.body.offsetHeight - window.innerHeight) === document.body.scrollTop) {
+    // console.log('doc' + (getDocHeight() - 50))
+    // console.log('scr' + getScrollXY()[1])
+    // console.log('w' + window.innerHeight)
+
+    // if ((getDocHeight() - 20 - window.innerHeight) <= getScrollXY()) {
+    //     getData(2, 25);
+    //     console.log(page)
+    // }
+
+    if (document.body.scrollTop + window.innerHeight >= getDocHeight()) {
         getData();
+        console.log(page)
     }
+    // console.log(document.body.offsetHeight - window.innerHeight)
+    // console.log(document.body.scrollTop);
+    // if ((document.body.offsetHeight - window.innerHeight) === document.body.scrollTop) {
+    //     getData();
+    // }
 }
 
 function getData() {
@@ -45,7 +58,7 @@ function getData() {
                 let issue = new Issue(title, state, number, createdAt, closedAt, user, comments);
 
                 issues.push(issue);
-                console.log(item.number);
+                //console.log(item.number);
             });
 
             return issues;
@@ -58,4 +71,31 @@ function getData() {
         .catch(error => {
             console.log(error);
         })
+}
+
+function getScrollXY() {
+    var scrOfY = 0;
+
+    if (typeof(window.pageYOffset) === 'number') {
+        //Netscape compliant
+        scrOfY = window.pageYOffset;
+    } else if (document.body && document.body.scrollTop) {
+        //DOM compliant
+        scrOfY = document.body.scrollTop;
+    } else if (document.documentElement && document.documentElement.scrollTop) {
+        //IE6 standards compliant mode
+        scrOfY = document.documentElement.scrollTop;
+    }
+
+    return scrOfY;
+}
+
+function getDocHeight() {
+    var D = document;
+
+    return Math.max(
+        D.body.scrollHeight, D.documentElement.scrollHeight,
+        D.body.offsetHeight, D.documentElement.offsetHeight,
+        D.body.clientHeight, D.documentElement.clientHeight
+    );
 }
