@@ -1,0 +1,72 @@
+body {
+    font-size: 16px;
+}
+
+a:hover,
+a:focus {
+    text-decoration: none;
+}
+
+.title {
+    color: #fff;
+    font-size: 3rem;
+}
+
+main .active {
+    color: #64C2CF;
+}
+
+.title:hover,
+.title:focus {
+    color: #64C2CF;
+    font-size: 3rem;
+}
+
+.container-box {
+    height: 100vh;
+    padding-top: 20px;
+}
+
+.sidebar {
+    background: #2A252D;
+}
+
+.sidebar ul li {
+    list-style: none;
+}
+
+.sidebar ul li a {
+    color: #64C2CF;
+    font-size: 2.2rem;
+    line-height: 4rem;
+}
+
+.main {
+    background: #DDDDDD;
+}
+
+.main a {
+    color: #2A252D;
+}
+
+.main a:hover {
+    color: #64C2CF;
+}
+
+.main button {
+    color: gray;
+}
+
+.nav li a:hover,
+.nav li a:focus {
+    background: #403844;
+}
+
+.nav {
+    padding-top: 20px;
+}
+
+.main .create-btn {
+    color: #64C2CF;
+    font-size: 2rem;
+}
