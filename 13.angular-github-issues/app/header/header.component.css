@@ -1,0 +1,42 @@
+header {
+    text-align: center;
+    border-bottom: 1px solid black;
+    margin-bottom: 25px;
+}
+
+header .nav {
+    display: inline-block;
+}
+
+header .nav li {
+    display: inline;
+    list-style: none;
+    font-size: 20px;
+    font-weight: bold;
+    border-right: 1px solid #404247;
+}
+
+header .nav li:nth-child(3){
+    border-right: none
+}
+
+header .nav li:last-child{
+    border-right: none
+}
+
+header .nav li a {
+    text-decoration: none;
+    color: #404247;
+}
+
+header .left-padding {
+    padding-left: 20px;
+}
+
+header .right-padding {
+    padding-right: 20px;
+}
+
+header button {
+    font-size: 15px;
+}

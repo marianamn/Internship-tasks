@@ -1,0 +1,44 @@
+.sidebar ul {
+    margin-top: 25px;
+    margin-left: 20px;
+}
+
+.sidebar ul li {
+    width: 85%;
+    margin-top: 15px;
+}
+
+.sidebar ul li:last-of-type {
+    margin-top: 70vh;
+    width: 100%;
+}
+
+.sidebar ul li:nth-child(2),
+.sidebar ul li:nth-child(3),
+.sidebar ul li:nth-child(5) {
+    border-bottom: 1px solid gray;
+    padding-bottom: 10px;
+}
+
+.sidebar ul li a {
+    color: gray;
+    font-weight: bold;
+}
+
+.sidebar ul li a:hover {
+    color: white;
+}
+
+.sidebar ul li a:active,
+.sidebar ul li a:focus {
+    color: #16873E;
+}
+
+.search-icon {
+    margin-left: 50%;
+    font-size: 19px;
+}
+
+.user-icon {
+    margin-right: 10px;
+}

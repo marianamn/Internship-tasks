@@ -1,0 +1,6 @@
+<ul class="nav">
+    <li><a ui-sref="home" class="right-padding">Home</a></li>
+    <li><a ui-sref="issues" class="left-padding right-padding">Issues</a></li>
+    <li class="right-padding"><a ui-sref="login" ng-hide="$ctrl.isAuthenticated" class="left-padding right-padding">Login</a></li>
+    <li><button ng-click="$ctrl.logout()" ng-show="$ctrl.isAuthenticated">Logout</button></li>
+</ul>

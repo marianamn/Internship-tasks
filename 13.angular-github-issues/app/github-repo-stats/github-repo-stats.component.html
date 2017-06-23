@@ -1,0 +1,17 @@
+<h2>
+    {{ $ctrl.repo.name || 'No Repository Selected' }}
+</h2>
+
+<div class="statistic">
+    <div>
+        <p><strong>Watch: {{  $ctrl.repo.watch }}</strong></p>
+        <p><strong>Star: {{ $ctrl.repo.stargazers_count }}</strong></p>
+        <p><strong>Fork: {{ $ctrl.repo.forks_count }}</strong></p>
+    </div>
+
+    <div>
+        <p><strong>Total issues: {{ $ctrl.repo.totalIssues }}</strong></p>
+        <p><strong>Open: {{ $ctrl.repo.open_issues }}</strong></p>
+        <p><strong>Closed: {{ $ctrl.repo.closed }} </strong></p>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+.statistic {
+    border: 1px solid black;
+    margin-bottom: 20px;
+}
+
+.statistic >div {
+    display: flex;
+}
+
+.statistic >div p {
+    flex: 0 1 33%;
+    text-align: center;
+}

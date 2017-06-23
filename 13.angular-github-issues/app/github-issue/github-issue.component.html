@@ -1,0 +1,8 @@
+<div>
+    <p class="title">{{ $ctrl.issue.title }}</p>
+    <p class="comments-count">{{ $ctrl.issue.comments }}</p>
+    <p class="details">
+        #{{$ctrl.issue.number}} {{$ctrl.issue.state}} by {{$ctrl.issue.user.login}}
+    </p>
+    <relative-time time="$ctrl.issue.created_at"></relative-time>
+</div>

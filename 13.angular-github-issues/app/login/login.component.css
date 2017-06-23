@@ -1,0 +1,16 @@
+login .login-form {
+    margin: 0 auto;
+    width: 290px;
+}
+
+login .form-group {
+    margin-bottom: 15px;
+}
+
+login .form-group input {
+    float: right;
+}
+
+login .login-form button {
+    font-size: 14px;
+}

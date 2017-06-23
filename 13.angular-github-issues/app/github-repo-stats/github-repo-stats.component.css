@@ -1,0 +1,13 @@
+github-repo-stats .statistic {
+    border: 1px solid black;
+    margin-bottom: 20px;
+}
+
+github-repo-stats .statistic >div {
+    display: flex;
+}
+
+github-repo-stats >div p {
+    flex: 33%;
+    text-align: center;
+}

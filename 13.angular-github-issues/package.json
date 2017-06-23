@@ -1,0 +1,18 @@
+{
+  "name": "mariana.naidenova",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./app/app.module.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.mentormate.bg:fe-internship-2017/mariana.naidenova.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "angular-ui-router": "0.4"
+  }
+}

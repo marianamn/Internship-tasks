@@ -1,0 +1,27 @@
+.container .content {
+    float: left;
+    width: 80%;
+    height: 100vh;
+}
+
+.container .sidebar {
+    float: left;
+    width: 20%;
+    height: 100vh;
+    background: black;
+}
+
+.content .component-container {
+    clear: both;
+}
+
+.component-container {
+    margin-left: 30px;
+    margin-top: 50px;
+}
+
+.content {
+    background: #2d2c2c;
+    color: white;
+    padding-top: 25px;
+}

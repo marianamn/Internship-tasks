@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>GitHub Issues</title>
+
+    <link rel="apple-touch-icon" sizes="57x57" href="assets/icons/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="assets/icons/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/icons/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/icons/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="assets/icons/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="assets/icons/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="assets/icons/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/icons/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/icons/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/icons/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" type="text/css" href="assets/styles/normalize.css">
+    <link rel="stylesheet" type="text/css" href="assets/styles/main.css">
+    <link rel="stylesheet" type="text/css" href="app/github-repo-stats/github-repo-stats.component.css">
+    <link rel="stylesheet" type="text/css" href="app/github-issues-listing/github-issues-listing.component.css">
+    <link rel="stylesheet" type="text/css" href="app/github-issue/github-issue.component.css">
+    <link rel="stylesheet" type="text/css" href="app/header/header.component.css">
+    <link rel="stylesheet" type="text/css" href="app/login/login.component.css">
+    <link rel="stylesheet" type="text/css" href="app/github-issues-toolbar/github-issues-toolbar.component.css">
+</head>
+
+<body id="wrapper">
+    <header></header>
+
+    <div ui-view></div>
+
+    <!-- Vendor -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.4/angular.js"></script>
+    <script src="./node_modules/angular-ui-router/release/angular-ui-router.js"></script>
+
+    <!-- Modules come first -->
+    <script src="app/app.module.js"></script>
+    <script src="app/app-routers/app-routers.js"></script>
+
+    <!-- Components and services last -->
+    <script src="app/github-app/github-app.component.js"></script>
+    <script src="app/github-repo-select/github-repo-select.component.js"></script>
+    <script src="app/github-issues-toolbar/github-issues-toolbar.component.js"></script>
+    <script src="app/github-issues-filter/github-issues-filter.component.js"></script>
+    <script src="app/github-issues-sort/github-issues-sort.component.js"></script>
+    <script src="app/github-issues-listing/github-issues-listing.component.js"></script>
+    <script src="app/github-issue/github-issue.component.js"></script>
+    <script src="app/relative-time/relative-time.component.js"></script>
+    <script src="app/github-repo-stats/github-repo-stats.component.js"></script>
+    <script src="app/header/header.component.js"></script>
+    <script src="app/login/login.component.js"></script>
+    <script src="app/services/github.service.js"></script>
+    <script src="app/services/authentication.service.js"></script>
+    <script src="app/services/relative-time.service.js"></script>
+    <script src="app/directives/infinite-scroller.directive.js"></script>
+</body>
+
+</html>
