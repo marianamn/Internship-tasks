@@ -1,0 +1,26 @@
+.search .search-bar { 
+    margin-top: 20px;
+    overflow: hidden;
+}
+
+.search .search-bar p {
+    margin-left: 30px;
+}
+
+.search .search-bar .input-search {
+    width: 98%;
+    height: 78px;
+    padding-left: 30px;
+    margin-top: 10px;
+    font-size: 40px;
+    border: none;
+    color: #242424;
+    font-weight: bold;
+    background: #37343d;
+    caret-color: #07d159;
+}
+
+.search .search-bar .input-search:focus {
+    outline: none;
+    color: white;
+}

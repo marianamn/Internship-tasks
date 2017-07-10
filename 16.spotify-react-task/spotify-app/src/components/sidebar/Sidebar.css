@@ -9,13 +9,12 @@
 }
 
 .sidebar ul li:last-of-type {
-    margin-top: 70vh;
+    margin-top: 75vh;
     width: 100%;
 }
 
 .sidebar ul li:nth-child(2),
-.sidebar ul li:nth-child(3),
-.sidebar ul li:nth-child(5) {
+.sidebar ul li:nth-child(3) {
     border-bottom: 1px solid gray;
     padding-bottom: 10px;
 }
@@ -29,16 +28,27 @@
     color: white;
 }
 
-.sidebar ul li a:active,
+/*.sidebar ul li a:active,*/
 .sidebar ul li a:focus {
-    color: #16873E;
+    color: #07D159;
 }
 
-.search-icon {
+.sidebar ul li .active {
+    color: #07D159;
+}
+
+.sidebar .logo-icon {
+    width: 30px;
+    height: 30px;
+}
+
+.sidebar .search-icon {
     margin-left: 50%;
     font-size: 19px;
 }
 
-.user-icon {
+.sidebar .user-icon {
     margin-right: 10px;
+    width: 30px;
+    height: 30px;
 }

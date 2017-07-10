@@ -1,0 +1,94 @@
+.tracks .left {
+    float: left;
+}
+
+.tracks .right {
+    float: right;
+}
+
+.tracks .clear {
+    clear: both;
+}
+
+.tracks >div {
+    justify-content: center;
+    display: flex;
+}
+
+.tracks .artists-container {
+    clear: both;
+    display: flex;
+}
+
+.tracks .artists-container p,
+.tracks .duration {
+    color: gray;
+}
+
+.tracks .artists-container .artists-list {
+    display: flex;
+}
+
+.tracks .artists-container .artists-list li {
+    margin-right: 5px;
+}
+
+.tracks .artists-container .artists-list li a {
+    color: gray;
+}
+
+.tracks .artists-container .artists-list li a:hover {
+    color: white;
+}
+
+.tracks .artists-container .artists-list li:last-of-type a .comma{
+    display: none;
+}
+
+.tracks .circle {
+    color: gray;
+    font-size: 4px;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.tracks .track-list {
+    margin-left: 50px;
+    margin-right: 50px;
+    flex: 1 0 auto;
+}
+
+.tracks .track-list .only-tracks {
+    width: 80%;
+    margin-left: 100px;
+}
+
+.tracks .track-container {
+    padding: 20px;
+}
+
+.tracks .track-container:hover {
+    background: #252328;
+    opacity: 0.9;
+}
+
+.tracks .track-container .disable {
+    display: none;
+}
+
+.tracks .track-container:hover .disable {
+    display: inline-block;
+}
+
+.tracks .track-container:hover .duration {
+    display: inline-block;
+    padding-left: 15px;
+}
+
+.tracks .detailed-page{
+    margin-top: 80px;
+}
+
+.tracks .copyright ul li p {
+    margin-top: 5px;
+}

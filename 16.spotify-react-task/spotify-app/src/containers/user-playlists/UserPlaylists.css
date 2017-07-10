@@ -1,0 +1,21 @@
+.user-playlist {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.user-playlist .user-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+.user-playlist .playlist-owner {
+    margin-top: 20px;
+    text-transform: capitalize;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.user-playlist h3 {
+    text-transform: uppercase;
+}

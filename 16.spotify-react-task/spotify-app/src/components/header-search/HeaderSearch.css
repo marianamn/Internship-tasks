@@ -1,0 +1,34 @@
+.search-nav ul {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.search-nav ul li {
+  margin: 10px;
+}
+
+.search-nav ul li:last-of-type {
+  margin-right: 0;
+}
+
+.search-nav ul li a {
+  color: gray;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.search-nav ul li a:hover,
+.search-nav ul li a:focus{
+  color: white;
+}
+
+.search-nav ul li a:focus p,
+.search-nav ul li a:visited p{
+  width: 25px;
+  height: 2px;
+  background: #07D159;
+  margin: 0 auto;
+  margin-top: 5px;
+}

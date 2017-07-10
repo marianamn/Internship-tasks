@@ -1,43 +1,28 @@
 import React, { Component } from 'react';
-
-import { urls } from '../../common/constants';
+import { getCurrentUserDetails } from '../../services/getUserData';
 
 class Callback extends Component {
-    constructor(props) {
-        super(props);
-        this.token = '';
-    }
-
     componentDidMount() {
         let result = this.props.location.hash
             .replace(/^#\/?/, '')
             .split('&');
 
+        let token = '';
+
         let tokenString = result[0];
         let splitByIndex = tokenString.indexOf('=');
 
-        this.token = decodeURIComponent(tokenString.substring(splitByIndex + 1));
-        localStorage.setItem('spotify_token', this.token)
+        token = decodeURIComponent(tokenString.substring(splitByIndex + 1));
+        localStorage.setItem('spotify_token', token);
 
-        this.getUserDetails();
-    }
-
-    getUserDetails() {
-        var headers = {
-            headers: {
-                'Authorization': 'Bearer ' + this.token,
-                'Content-Type': 'application/json'
-            }
-        }
-
-        return fetch(urls.user_details_url, headers)
-            .then(response => response.json())
-            .then(function (result) {
-                console.log(result);
-
+        getCurrentUserDetails(token)
+            .then(result => {
                 localStorage.setItem('user', result.id);
+                localStorage.setItem('country', result.country);
+
+                window.opener.loginSuccess();
+                window.close();
             })
-            .catch(error => error);
     }
 
     render() {

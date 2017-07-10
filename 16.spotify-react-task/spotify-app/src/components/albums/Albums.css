@@ -1,0 +1,29 @@
+.albums {
+  margin-left: 25px;
+}
+
+.albums ul {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.albums ul li {
+    margin-right: 15px;
+}
+
+.albums ul li p {
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 50px;
+    width: 250px;
+}
+
+.albums img {
+    width: 250px;
+    height: 250px;
+}
+
+.albums img:hover {
+    background: black;
+    opacity: 0.3;
+}

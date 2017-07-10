@@ -1,0 +1,28 @@
+.artist {
+    text-align: center;
+}
+
+.artist img {
+    width: 250px;
+    height: 250px;
+}
+
+.artist .artist-info {
+    position: relative;
+}
+
+.artist .artist-info .followers {
+    position: absolute;
+    top: 140px;
+    left: 85px;
+    font-size: 14px;
+    color: gray;
+}
+
+.artist .artist-info .artist-name {
+    position: absolute;
+    top: 165px;
+    left: 90px;
+    font-size: 24px;
+    font-weight: bold;
+}

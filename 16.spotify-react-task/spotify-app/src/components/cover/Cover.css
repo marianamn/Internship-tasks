@@ -1,0 +1,49 @@
+.cover {
+    width: 350px;
+    text-align: center;
+    /*position: fixed;*/
+    font-size: 16px;
+    flex: 1 0 auto;
+    margin-left: 50px;
+    float: 1 0 auto;
+}
+
+.cover img {
+    width: 320px;
+    height: 320px;
+}
+
+.cover .cover-details {
+    margin-top: 20px;
+}
+
+.cover .cover-details p {
+    margin-bottom: 15px;
+    color: gray;
+}
+
+.cover .cover-details p:last-of-type {
+    text-transform: uppercase;
+}
+
+.cover button {
+    width: 130px;
+    padding: 12px;
+    border-radius: 25px;
+    text-transform: uppercase;
+    background-color: #1ED760;
+    border: none;
+    color: white;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.cover .owner a {
+    text-decoration: none;
+    text-transform: capitalize;
+    color: gray;
+}
+
+.cover .owner a:hover {
+    color: white;
+}

@@ -1,29 +1,36 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 
 import './Header.css';
 
-import HeaderBrowse from '../../components/header/HeaderBrowse';
-import HeaderPlaylist from '../../components/header/HeaderPlaylist';
+import HeaderBrowse from '../../components/header-browse/HeaderBrowse';
+import HeaderPlaylist from '../../components/header-playlist/HeaderPlaylist';
 
-function displayContent(location){
-    switch(location){
-        case 'browse': return <HeaderBrowse></HeaderBrowse>;
-        case 'collection' : return <HeaderPlaylist></HeaderPlaylist>;
+function displayContent(location) {
+    switch (location) {
+        case 'browse':
+            //document.querySelector('.browse').classList.add('active');
+            return <HeaderBrowse></HeaderBrowse>;
+        case 'collection': return <HeaderPlaylist></HeaderPlaylist>;
         default: return <div></div>
     }
 }
 
 class Header extends Component {
     render() {
-        let pathname =  window.location.pathname.slice(1);
-        let location = pathname.substring(0, pathname.indexOf('/'));
+        let pathAsArray = this.props
+            .location
+            .pathname
+            .split('/');
+
+        let location = pathAsArray[1];
 
         return (
-            <header className="header">
+            <header className='header'>
                 {displayContent(location)}
             </header>
         );
     }
 }
 
-export default Header;
+export default withRouter(Header);

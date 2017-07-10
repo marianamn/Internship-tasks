@@ -1,4 +1,49 @@
-.container .login-panel {
-    width: 100vw;
-    height: 100vh;
+.login-panel {
+    display: flex;
+    justify-content: center;
+}
+
+.login-panel p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-panel img {
+    width: 70px;
+    height: 70px;
+}
+
+.login-panel span {
+    font-size: 30px;
+    margin-left: 10px;
+}
+
+.login-panel button {
+    margin-top: 50px;
+    width: 210px;
+    padding: 5px;
+    border-radius: 25px;
+    border: 1px solid white;
+    background: none;
+    color: white;
+    text-transform: uppercase;
+    outline: 0;
+}
+
+.login-panel .welcome-panel {
+    border-left: 1px solid #07D159;
+    margin-left: 20px;
+    padding-left: 20px;
+}
+
+.login-panel .welcome-panel p {
+    color: #07D159;
+    font-size: 30px;
+}
+
+.login-panel .welcome-panel p:last-of-type {
+    color: white;
+    margin-top: 50px;
+    font-size: 24px;
 }

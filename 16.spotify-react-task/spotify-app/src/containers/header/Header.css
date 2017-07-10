@@ -5,15 +5,33 @@
 
 .header ul {
   display: flex;
+  justify-content: center;
 }
 
 .header ul li {
-  flex: 1 1 auto;
-  text-align: center;
+  margin: 10px;
+}
+
+.header ul li:last-of-type {
+  margin-right: 0;
 }
 
 .header ul li a {
-  color: white;
+  color: gray;
   text-transform: uppercase;
   font-size: 14px;
+  font-weight: bold;
+}
+
+.header ul li a:hover,
+.header ul li a:focus {
+  color: white;
+}
+
+.header ul li a:focus p{
+  width: 25px;
+  height: 2px;
+  background: #07D159;
+  margin: 0 auto;
+  margin-top: 5px;
 }
